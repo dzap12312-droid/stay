@@ -1,0 +1,90 @@
+﻿Total records: 88
+id=1 status=failed query=[Quốc lộ 10, Xã Đông Sơn, Huyện Thuỷ Nguyên, TP. Hải Phòng, Việt Nam] -> ,
+id=2 status=failed query=[D8 - TT18 Đường Bạch Thái Bưởi KĐT Văn Quán - Yên Phúc, P. Hà Đông, TP. Hà Nộ, Việt Nam] -> ,
+id=3 status=failed query=[Ngõ 200 Nguyễn Sơn, P. Bồ Đề, Q. Long Biên, Hà Nội, Việt Nam] -> ,
+id=4 status=geocoded query=[19 Triệu Quang Phục, TP Hồ Chí Minh, Việt Nam] -> 10.7561051,106.6612471
+id=5 status=failed query=[KCN Tiên Sơn, Xã Hoàn Sơn, H. Tiên Du, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=6 status=geocoded query=[Số 771 đường Quang Trung, Phường Kiến Hưng, TP. Hà Nội, Việt Nam] -> 20.957274,105.7589942
+id=7 status=failed query=[Thôn Phúc Thụy, Xã Hải Hà, Huyện Hải Hậu, Tỉnh Nam Định, Việt Nam] -> ,
+id=8 status=failed query=[Cụm Công nghiệp Hoàng Xá, Xã Tu Vũ, Tỉnh Phú Thọ, Việt Nam] -> ,
+id=9 status=failed query=[Lô B10 Khu công nghiệp Hiệp Phước, Xã Hiệp Phước, TP Hồ Chí Minh, Việt Nam] -> ,
+id=10 status=failed query=[Phòng 409, Tầng 4, Toà nhà The Garden, Đường Mễ Trì, P. Mỹ Đình 1, Q. Nam Từ Liêm, Hà Nội, Việt Nam] -> ,
+id=11 status=failed query=[6/8 Đường Nguyễn Ư Dĩ, Phường An Khánh, TP Hồ Chí Minh, Việt Nam] -> ,
+id=12 status=failed query=[Số nhà 17, Khu 11, Xã Phù Ninh, Tỉnh Phú Thọ, Việt Nam] -> ,
+id=13 status=failed query=[51/6B ấp 4, Xã Đông Thạnh, TP Hồ Chí Minh, Việt Nam] -> ,
+id=14 status=failed query=[Số 190, phố Tân An, Phường Tân Dân, Thành phố Việt Trì, Tỉnh Phú Thọ, Việt Nam] -> ,
+id=15 status=failed query=[Lô A1-1 KCN Tân Kim, Khu phố Tân Phước, Xã Cần Giuộc, Tỉnh Tây Ninh, Việt Nam] -> ,
+id=16 status=geocoded query=[48 Lê Văn Quới, Phường Bình Trị Đông, TP Hồ Chí Minh, Việt Nam] -> 10.7753504,106.6163694
+id=17 status=failed query=[Thôn Nhuệ, Xã Hoài Đức, TP Hà Nội, Việt Nam] -> ,
+id=18 status=failed query=[Số 12 VSIP II-A, Đường Số 26, KCN Việt Nam - Singapore II-A, P. Vĩnh Tân, TP. Tân Uyên, Bình Dương] -> ,
+id=19 status=failed query=[Lầu 3, số 322 Tây Thạnh, Phường Tây Thạnh, TP Hồ Chí Minh, Việt Nam] -> ,
+id=20 status=failed query=[Lô số CN3-1, Khu công nghiệp Minh Quang, Phường Bạch Sam, Thị xã Mỹ Hào, Tỉnh Hưng Yên, Việt Nam] -> ,
+id=21 status=failed query=[Số 2A-4A, Đường Tôn Đức Thắng, Phường Sài Gòn, TP Hồ Chí Minh, Việt Nam] -> ,
+id=22 status=failed query=[Tầng 08, Tòa nhà IDMC Duy Tân, số 21 Duy Tân, Phường Cầu Giấy, TP Hà Nội, Việt Nam] -> ,
+id=23 status=failed query=[Số 188A - 188B, đường Võ Nguyên Giáp, Tổ dân phố Song Khê, Phường Tiền Phong, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=24 status=geocoded query=[17 Huỳnh Đình Hai, Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam] -> 10.8046137,106.700635
+id=25 status=failed query=[Số 2 đường TS6, KCN Tiên Sơn, Xã Tiên Du, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=26 status=geocoded query=[86/58 Phổ Quang, Phường Tân Sơn Hòa, TP Hồ Chí Minh, Việt Nam] -> 10.8072415,106.6684351
+id=27 status=failed query=[Lô số Cn10, khu công nghiệp Phú Nghĩa, Xã Phú Nghĩa, Thành phố Hà Nội, Việt Nam] -> ,
+id=28 status=failed query=[Lô I/6, Đường số 4, Khu công nghiệp Vĩnh Lộc, Phường Bình Tân, TP Hồ Chí Minh, Việt Nam] -> ,
+id=29 status=geocoded query=[99P Cộng Hòa, Phường Tân Sơn Nhất, TP Hồ Chí Minh, Việt Nam] -> 10.8012016,106.6566643
+id=30 status=failed query=[Bản Suối Lìn, Xã Vân Hồ, Tỉnh Sơn La, Việt Nam] -> ,
+id=31 status=geocoded query=[47A Lê Trọng Tấn, Phường Tân Sơn Nhì, TP Hồ Chí Minh, Việt Nam] -> 10.8068262,106.6246046
+id=32 status=failed query=[25/49/25 Đường số 6, Phường Hiệp Bình, TP Hồ Chí Minh, Việt Nam] -> ,
+id=33 status=failed query=[Lầu 3, số 322 Tây Thạnh, Phường Tây Thạnh, TP Hồ Chí Minh, Việt Nam] -> ,
+id=34 status=failed query=[Đường 196, thôn Hoàng Nha, Xã Lạc Đạo, Tỉnh Hưng Yên, Việt Nam] -> ,
+id=35 status=failed query=[Km 50 +250, bắc quốc lộ 5A, Phường Việt Hòa, TP Hải Phòng, Việt Nam] -> ,
+id=36 status=geocoded query=[27C Quốc Hương, Phường An Khánh, TP Hồ Chí Minh, Việt Nam] -> 10.8073843,106.7308879
+id=37 status=failed query=[Số 13 ngõ 312 đường Ngô Gia Tự, phố Ngô Quyền, Phường Hoa Lư, Việt Nam] -> ,
+id=38 status=failed query=[Số 16/3, ngõ 390 đường Nguyễn Văn Cừ, Phường Bồ Đề, TP Hà Nội, Việt Nam] -> ,
+id=39 status=failed query=[Một phần lô J, KCN Đồng Văn II, P. Bạch Thượng, TX Duy Tiên, Hà Nam, Việt Nam] -> ,
+id=40 status=failed query=[Tầng 4 Tòa nhà Thái Lâm Plaza, số 52 đường Thanh Liệt, Thôn Vực, Phường Định Công, TP Hà Nội, Việt Nam] -> ,
+id=41 status=failed query=[KCN Biên Hòa I, P. Trấn Biên, TP. Biên Hòa, Tỉnh Đồng Nai, Việt Nam] -> ,
+id=42 status=failed query=[Số 36B ngõ 158 phố Nguyễn Sơn, Phường Bồ Đề, TP Hà Nội, Việt Nam] -> ,
+id=43 status=failed query=[CCN Hà Mãn - Trí Quả, Xã Xuân Lâm, TX Thuận Thành, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=44 status=failed query=[Đội 7, thôn Văn Thai, Xã Cẩm Văn, H. Cẩm Giàng, Tỉnh Hải Dương, Việt Nam] -> ,
+id=45 status=failed query=[KCN Cái Lân, P. Bãi Cháy, TP. Hạ Long, Tỉnh Quảng Ninh, Việt Nam] -> ,
+id=46 status=failed query=[Lô H4-2, Đường N3, KCN Đông Nam, Xã Bình Mỹ, H. Củ Chi, TP. Hồ Chí Minh, Việt Nam] -> ,
+id=47 status=failed query=[Lô K4B, KCN Lê Minh Xuân, Đường Số 4, Xã Bình Lợi, TP. Hồ Chí Minh, Việt Nam] -> ,
+id=48 status=failed query=[Lô 7, Đường TS9, KCN Tiên Sơn, Xã Đại Đồng, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=49 status=failed query=[Tầng 2 và Tầng 10, Tòa nhà CornerStone, số 16 Phan Chu Trinh, Q. Hoàn Kiếm, Hà Nội, Việt Nam] -> ,
+id=50 status=geocoded query=[289 Lũy Bán Bích, Phường Phú Thạnh, Thành phố Hồ Chí Minh, Việt Nam] -> 10.781112,106.635895
+id=51 status=geocoded query=[Số 289, đường Nguyễn Văn Linh, Phường Phúc Lợi, Thành phố Hà Nội, Việt Nam] -> 21.0257401,105.9270959
+id=52 status=failed query=[12-14, Khu dân cư An Lạc Đường số 16, Phường An Lạc, TP Hồ Chí Minh, Việt Nam] -> ,
+id=53 status=failed query=[Km số 9, quốc lộ 1A Pháp Vân, Phường Yên Sở, TP Hà Nội, Việt Nam] -> ,
+id=54 status=failed query=[P3-a7, khu tập thể du lịch 12, Ngõ 279 Đội Cấn, P. Liễu Giai, Q. Ba Đình, Hà Nội, Việt Nam] -> ,
+id=55 status=failed query=[Tổ dân phố Ngọc Lâm, P. Đường Hào, Tỉnh Hưng Yên, Việt Nam] -> ,
+id=56 status=failed query=[Lô F2, KCN Phú Hội, Xã Phú Hội, H. Đức Trọng, Tỉnh Lâm Đồng, Việt Nam] -> ,
+id=57 status=failed query=[Ấp Thạnh Hưng, Xã Tân Châu, Tỉnh Tây Ninh, Việt Nam] -> ,
+id=58 status=geocoded query=[106/10 Đường Phan Văn Trị, Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam] -> 10.8076477,106.6970921
+id=59 status=failed query=[Bản Suối Lìn, Xã Vân Hồ, Tỉnh Sơn La, Việt Nam] -> ,
+id=60 status=failed query=[20 Đường 14, Khu Phố 3, Phường An Khánh, TP Hồ Chí Minh, Việt Nam] -> ,
+id=61 status=failed query=[Số 19, đường 11, KCN - Đô thị và Dịch vụ VSIP Bắc Ninh, Xã Đại Đồng, H. Tiên Du, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=62 status=failed query=[Số 7/28 ngõ 20, đường Phạm Văn Đồng, Phường Tứ Minh, Thành phố Hải Phòng, Việt Nam ; Tình] -> ,
+id=63 status=failed query=[Số 4, Tầng 1, Tòa OCT1 ĐN1 X1, Tổ 53, Phường Định Công, TP Hà Nội, Việt Nam] -> ,
+id=64 status=failed query=[Thôn Kim Tháp, Xã Nguyệt Đức, Thị xã Thuận Thành, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=65 status=failed query=[Số 6-7 Đường Phan Tôn, Phường Tân Định, TP Hồ Chí Minh, Việt Nam] -> ,
+id=66 status=failed query=[Số nhà LK04, Khu nhà ở thấp tầng Ngõ 38 đường Xuân La, Phường Xuân Đỉnh, TP Hà Nội, Việt Nam] -> ,
+id=67 status=failed query=[Số 39, phố Phó Đức Chính, Phường Ba Đình, TP Hà Nội, Việt Nam] -> ,
+id=68 status=geocoded query=[72/2B Bành Văn Trân, Phường Tân Sơn Nhất, TP Hồ Chí Minh, Việt Nam] -> 10.7883367,106.6578581
+id=69 status=failed query=[Nhà số 5, ngách 49/16 phố Trần Cung, Phường Nghĩa Đô, TP Hà Nội, Việt Nam] -> ,
+id=70 status=failed query=[Lô CN07, Khu công nghiệp Cẩm Khê, Xã Cẩm Khê, Tỉnh Phú Thọ, Việt Nam] -> ,
+id=71 status=failed query=[22/76 Cư xá Lữ Gia, Đường Lữ Gia, Phường Phú Thọ, TP Hồ Chí Minh, Việt Nam] -> ,
+id=72 status=geocoded query=[Số 5 ngõ 65, phố Mai Dịch, Phường Phú Diễn, TP Hà Nội, Việt Nam] -> 21.0391215,105.7737914
+id=73 status=geocoded query=[260 Nguyễn Thái Sơn, Phường Hạnh Thông, TP Hồ Chí Minh, Việt Nam] -> 10.8262949,106.6892733
+id=74 status=failed query=[Khu Thống Nhất, Xã Cẩm Khê, Tỉnh Phú Thọ, Việt Nam] -> ,
+id=75 status=failed query=[Tổ dân phố Lường, Phường Bạch Sam, Thị xã Mỹ Hào, Tỉnh Hưng Yên, Việt Nam] -> ,
+id=76 status=failed query=[Tầng 8, Tòa nhà Viettel Complex, 285 Cách Mạng Tháng Tám, Phường Hòa Hưng, TP Hồ Chí Minh, Việt Nam] -> ,
+id=77 status=geocoded query=[Số 224, Đường Hà Huy Giáp, Phường Trấn Biên, TP Đồng Nai, Việt Nam] -> 10.9490945,106.8241788
+id=78 status=failed query=[Tầng 4, Số 11, Lô Ơ 2, Bán đảo Linh Đàm, Phường Hoàng Liệt, TP Hà Nội, Việt Nam] -> ,
+id=79 status=failed query=[Số 346/29 Đường Bình Lợi, Phường Bình Lợi Trung, TP Hồ Chí Minh, Việt Nam] -> ,
+id=80 status=failed query=[Số 4, ngách 30, ngõ 134, đường Thạch Bàn, Phường Long Biên, TP Hà Nội, Việt Nam] -> ,
+id=81 status=failed query=[Số 2L, phố Hoàng Hoa Thám, Phường Tây Hồ, TP Hà Nội, Việt Nam] -> ,
+id=82 status=failed query=[Lô II4-II5-II10-II11, cụm 4, nhóm CN II, KCN Tân Bình, Đường số 13, P. Tây Thạnh, Q. Tân Phú, TP. Hồ Chí Minh, Việt Nam] -> ,
+id=83 status=geocoded query=[38/10A Trần Khắc Chân, Phường Tân Định, TP Hồ Chí Minh, Việt Nam] -> 10.7923542,106.6913549
+id=84 status=failed query=[Tầng 6 Tòa nhà VNPT, số 33 Lý Thái Tổ, Phường Kinh Bắc, Tỉnh Bắc Ninh, Việt Nam] -> ,
+id=85 status=geocoded query=[2/4 Lê Lai, Phường Bảy Hiền, TP Hồ Chí Minh, Việt Nam] -> 10.7950218,106.6462625
+id=86 status=failed query=[Kiot số 7, Tầng 1, Tòa CT2 Khu đô thị Bắc Linh Đàm, Phường Định Công, TP Hà Nội, Việt Nam] -> ,
+id=87 status=geocoded query=[13A Đường TL44, Phường An Phú Đông, TP Hồ Chí Minh, Việt Nam] -> 10.8518481,106.6961042
+id=88 status=failed query=[Khu Hành Chính Hưng Tiến, Xã Đoan Hùng, Tỉnh Phú Thọ, Việt Nam] -> ,
+Done. Geocoded: 18 / 88, Failed: 70

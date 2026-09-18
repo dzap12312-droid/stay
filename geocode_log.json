@@ -1,0 +1,706 @@
+[
+    {
+        "id":  1,
+        "query":  "Quốc lộ 10, Xã Đông Sơn, Huyện Thuỷ Nguyên, TP. Hải Phòng, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  2,
+        "query":  "D8 - TT18 Đường Bạch Thái Bưởi KĐT Văn Quán - Yên Phúc, P. Hà Đông, TP. Hà Nộ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  3,
+        "query":  "Ngõ 200 Nguyễn Sơn, P. Bồ Đề, Q. Long Biên, Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  4,
+        "query":  "19 Triệu Quang Phục, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.7561051,
+        "lon":  106.6612471,
+        "displayName":  "Triệu Quang Phục, Khu phố 1, Phường Chợ Lớn, Thành phố Hồ Chí Minh, 72723, Việt Nam"
+    },
+    {
+        "id":  5,
+        "query":  "KCN Tiên Sơn, Xã Hoàn Sơn, H. Tiên Du, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  6,
+        "query":  "Số 771 đường Quang Trung, Phường Kiến Hưng, TP. Hà Nội, Việt Nam",
+        "status":  "geocoded",
+        "lat":  20.957274,
+        "lon":  105.7589942,
+        "displayName":  "Đội Cảnh sát Giao thông số 10, Đường Quang Trung, Phường Kiến Hưng, Thành phố Hà Nội, 10189, Việt Nam"
+    },
+    {
+        "id":  7,
+        "query":  "Thôn Phúc Thụy, Xã Hải Hà, Huyện Hải Hậu, Tỉnh Nam Định, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  8,
+        "query":  "Cụm Công nghiệp Hoàng Xá, Xã Tu Vũ, Tỉnh Phú Thọ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  9,
+        "query":  "Lô B10 Khu công nghiệp Hiệp Phước, Xã Hiệp Phước, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  10,
+        "query":  "Phòng 409, Tầng 4, Toà nhà The Garden, Đường Mễ Trì, P. Mỹ Đình 1, Q. Nam Từ Liêm, Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  11,
+        "query":  "6/8 Đường Nguyễn Ư Dĩ, Phường An Khánh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  12,
+        "query":  "Số nhà 17, Khu 11, Xã Phù Ninh, Tỉnh Phú Thọ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  13,
+        "query":  "51/6B ấp 4, Xã Đông Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  14,
+        "query":  "Số 190, phố Tân An, Phường Tân Dân, Thành phố Việt Trì, Tỉnh Phú Thọ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  15,
+        "query":  "Lô A1-1 KCN Tân Kim, Khu phố Tân Phước, Xã Cần Giuộc, Tỉnh Tây Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  16,
+        "query":  "48 Lê Văn Quới, Phường Bình Trị Đông, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.7753504,
+        "lon":  106.6163694,
+        "displayName":  "Lê Văn Quới, Khu phố 4, Phường Bình Trị Đông, Thành phố Hồ Chí Minh, 72031, Việt Nam"
+    },
+    {
+        "id":  17,
+        "query":  "Thôn Nhuệ, Xã Hoài Đức, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  18,
+        "query":  "Số 12 VSIP II-A, Đường Số 26, KCN Việt Nam - Singapore II-A, P. Vĩnh Tân, TP. Tân Uyên, Bình Dương",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  19,
+        "query":  "Lầu 3, số 322 Tây Thạnh, Phường Tây Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  20,
+        "query":  "Lô số CN3-1, Khu công nghiệp Minh Quang, Phường Bạch Sam, Thị xã Mỹ Hào, Tỉnh Hưng Yên, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  21,
+        "query":  "Số 2A-4A, Đường Tôn Đức Thắng, Phường Sài Gòn, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  22,
+        "query":  "Tầng 08, Tòa nhà IDMC Duy Tân, số 21 Duy Tân, Phường Cầu Giấy, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  23,
+        "query":  "Số 188A - 188B, đường Võ Nguyên Giáp, Tổ dân phố Song Khê, Phường Tiền Phong, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  24,
+        "query":  "17 Huỳnh Đình Hai, Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8046137,
+        "lon":  106.700635,
+        "displayName":  "Huỳnh Đình Hai, Khu phố 21, Phường Bình Thạnh, Thành phố Hồ Chí Minh, 72326, Việt Nam"
+    },
+    {
+        "id":  25,
+        "query":  "Số 2 đường TS6, KCN Tiên Sơn, Xã Tiên Du, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  26,
+        "query":  "86/58 Phổ Quang, Phường Tân Sơn Hòa, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8072415,
+        "lon":  106.6684351,
+        "displayName":  "Phổ Quang, Phường Tân Sơn Hòa, Thành phố Hồ Chí Minh, 72215, Việt Nam"
+    },
+    {
+        "id":  27,
+        "query":  "Lô số Cn10, khu công nghiệp Phú Nghĩa, Xã Phú Nghĩa, Thành phố Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  28,
+        "query":  "Lô I/6, Đường số 4, Khu công nghiệp Vĩnh Lộc, Phường Bình Tân, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  29,
+        "query":  "99P Cộng Hòa, Phường Tân Sơn Nhất, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8012016,
+        "lon":  106.6566643,
+        "displayName":  "Cộng Hòa, Khu phố 12, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh, 72121, Việt Nam"
+    },
+    {
+        "id":  30,
+        "query":  "Bản Suối Lìn, Xã Vân Hồ, Tỉnh Sơn La, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  31,
+        "query":  "47A Lê Trọng Tấn, Phường Tân Sơn Nhì, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8068262,
+        "lon":  106.6246046,
+        "displayName":  "Lê Trọng Tấn, Khu phố 2, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh, 72008, Việt Nam"
+    },
+    {
+        "id":  32,
+        "query":  "25/49/25 Đường số 6, Phường Hiệp Bình, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  33,
+        "query":  "Lầu 3, số 322 Tây Thạnh, Phường Tây Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  34,
+        "query":  "Đường 196, thôn Hoàng Nha, Xã Lạc Đạo, Tỉnh Hưng Yên, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  35,
+        "query":  "Km 50 +250, bắc quốc lộ 5A, Phường Việt Hòa, TP Hải Phòng, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  36,
+        "query":  "27C Quốc Hương, Phường An Khánh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8073843,
+        "lon":  106.7308879,
+        "displayName":  "Quốc Hương, Khu phố 7, Phường An Khánh, Thành phố Hồ Chí Minh, 71108, Việt Nam"
+    },
+    {
+        "id":  37,
+        "query":  "Số 13 ngõ 312 đường Ngô Gia Tự, phố Ngô Quyền, Phường Hoa Lư, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  38,
+        "query":  "Số 16/3, ngõ 390 đường Nguyễn Văn Cừ, Phường Bồ Đề, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  39,
+        "query":  "Một phần lô J, KCN Đồng Văn II, P. Bạch Thượng, TX Duy Tiên, Hà Nam, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  40,
+        "query":  "Tầng 4 Tòa nhà Thái Lâm Plaza, số 52 đường Thanh Liệt, Thôn Vực, Phường Định Công, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  41,
+        "query":  "KCN Biên Hòa I, P. Trấn Biên, TP. Biên Hòa, Tỉnh Đồng Nai, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  42,
+        "query":  "Số 36B ngõ 158 phố Nguyễn Sơn, Phường Bồ Đề, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  43,
+        "query":  "CCN Hà Mãn - Trí Quả, Xã Xuân Lâm, TX Thuận Thành, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  44,
+        "query":  "Đội 7, thôn Văn Thai, Xã Cẩm Văn, H. Cẩm Giàng, Tỉnh Hải Dương, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  45,
+        "query":  "KCN Cái Lân, P. Bãi Cháy, TP. Hạ Long, Tỉnh Quảng Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  46,
+        "query":  "Lô H4-2, Đường N3, KCN Đông Nam, Xã Bình Mỹ, H. Củ Chi, TP. Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  47,
+        "query":  "Lô K4B, KCN Lê Minh Xuân, Đường Số 4, Xã Bình Lợi, TP. Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  48,
+        "query":  "Lô 7, Đường TS9, KCN Tiên Sơn, Xã Đại Đồng, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  49,
+        "query":  "Tầng 2 và Tầng 10, Tòa nhà CornerStone, số 16 Phan Chu Trinh, Q. Hoàn Kiếm, Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  50,
+        "query":  "289 Lũy Bán Bích, Phường Phú Thạnh, Thành phố Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.781112,
+        "lon":  106.635895,
+        "displayName":  "Lũy Bán Bích, Khu phố 8, Phường Phú Thạnh, Thành phố Hồ Chí Minh, 72012, Việt Nam"
+    },
+    {
+        "id":  51,
+        "query":  "Số 289, đường Nguyễn Văn Linh, Phường Phúc Lợi, Thành phố Hà Nội, Việt Nam",
+        "status":  "geocoded",
+        "lat":  21.0257401,
+        "lon":  105.9270959,
+        "displayName":  "Đường Nguyễn Văn Linh, Phường Phúc Lợi, Xã Gia Lâm, Thành phố Hà Nội, 08443, Việt Nam"
+    },
+    {
+        "id":  52,
+        "query":  "12-14, Khu dân cư An Lạc Đường số 16, Phường An Lạc, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  53,
+        "query":  "Km số 9, quốc lộ 1A Pháp Vân, Phường Yên Sở, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  54,
+        "query":  "P3-a7, khu tập thể du lịch 12, Ngõ 279 Đội Cấn, P. Liễu Giai, Q. Ba Đình, Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  55,
+        "query":  "Tổ dân phố Ngọc Lâm, P. Đường Hào, Tỉnh Hưng Yên, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  56,
+        "query":  "Lô F2, KCN Phú Hội, Xã Phú Hội, H. Đức Trọng, Tỉnh Lâm Đồng, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  57,
+        "query":  "Ấp Thạnh Hưng, Xã Tân Châu, Tỉnh Tây Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  58,
+        "query":  "106/10 Đường Phan Văn Trị, Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8076477,
+        "lon":  106.6970921,
+        "displayName":  "Hẻm 63 Đường Phan Văn Trị, Khu phố 4, Phường Bình Thạnh, Thành phố Hồ Chí Minh, 72317, Việt Nam"
+    },
+    {
+        "id":  59,
+        "query":  "Bản Suối Lìn, Xã Vân Hồ, Tỉnh Sơn La, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  60,
+        "query":  "20 Đường 14, Khu Phố 3, Phường An Khánh, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  61,
+        "query":  "Số 19, đường 11, KCN - Đô thị và Dịch vụ VSIP Bắc Ninh, Xã Đại Đồng, H. Tiên Du, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  62,
+        "query":  "Số 7/28 ngõ 20, đường Phạm Văn Đồng, Phường Tứ Minh, Thành phố Hải Phòng, Việt Nam ; Tình",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  63,
+        "query":  "Số 4, Tầng 1, Tòa OCT1 ĐN1 X1, Tổ 53, Phường Định Công, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  64,
+        "query":  "Thôn Kim Tháp, Xã Nguyệt Đức, Thị xã Thuận Thành, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  65,
+        "query":  "Số 6-7 Đường Phan Tôn, Phường Tân Định, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  66,
+        "query":  "Số nhà LK04, Khu nhà ở thấp tầng Ngõ 38 đường Xuân La, Phường Xuân Đỉnh, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  67,
+        "query":  "Số 39, phố Phó Đức Chính, Phường Ba Đình, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  68,
+        "query":  "72/2B Bành Văn Trân, Phường Tân Sơn Nhất, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.7883367,
+        "lon":  106.6578581,
+        "displayName":  "Bành Văn Trân, Khu phố 22, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh, 72117, Việt Nam"
+    },
+    {
+        "id":  69,
+        "query":  "Nhà số 5, ngách 49/16 phố Trần Cung, Phường Nghĩa Đô, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  70,
+        "query":  "Lô CN07, Khu công nghiệp Cẩm Khê, Xã Cẩm Khê, Tỉnh Phú Thọ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  71,
+        "query":  "22/76 Cư xá Lữ Gia, Đường Lữ Gia, Phường Phú Thọ, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  72,
+        "query":  "Số 5 ngõ 65, phố Mai Dịch, Phường Phú Diễn, TP Hà Nội, Việt Nam",
+        "status":  "geocoded",
+        "lat":  21.0391215,
+        "lon":  105.7737914,
+        "displayName":  "Ngõ 65 Phố Mai Dịch, Mai Dịch, Phường Phú Diễn, Thành phố Hà Nội, 10085, Việt Nam"
+    },
+    {
+        "id":  73,
+        "query":  "260 Nguyễn Thái Sơn, Phường Hạnh Thông, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8262949,
+        "lon":  106.6892733,
+        "displayName":  "Nguyễn Thái Sơn, Khu phố 4, Phường Hạnh Thông, Thành phố Hồ Chí Minh, 71423, Việt Nam"
+    },
+    {
+        "id":  74,
+        "query":  "Khu Thống Nhất, Xã Cẩm Khê, Tỉnh Phú Thọ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  75,
+        "query":  "Tổ dân phố Lường, Phường Bạch Sam, Thị xã Mỹ Hào, Tỉnh Hưng Yên, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  76,
+        "query":  "Tầng 8, Tòa nhà Viettel Complex, 285 Cách Mạng Tháng Tám, Phường Hòa Hưng, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  77,
+        "query":  "Số 224, Đường Hà Huy Giáp, Phường Trấn Biên, TP Đồng Nai, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.9490945,
+        "lon":  106.8241788,
+        "displayName":  "Trường Tiểu học-Trung học cơ sở-Trung học phổ thông Song ngữ Á Châu, Hẻm 154 Đường Hà Huy Giáp, Khu phố Quyết Thắng, Phường Trấn Biên, Đồng Nai, Thành phố Đồng Nai, 76107, Việt Nam"
+    },
+    {
+        "id":  78,
+        "query":  "Tầng 4, Số 11, Lô Ơ 2, Bán đảo Linh Đàm, Phường Hoàng Liệt, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  79,
+        "query":  "Số 346/29 Đường Bình Lợi, Phường Bình Lợi Trung, TP Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  80,
+        "query":  "Số 4, ngách 30, ngõ 134, đường Thạch Bàn, Phường Long Biên, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  81,
+        "query":  "Số 2L, phố Hoàng Hoa Thám, Phường Tây Hồ, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  82,
+        "query":  "Lô II4-II5-II10-II11, cụm 4, nhóm CN II, KCN Tân Bình, Đường số 13, P. Tây Thạnh, Q. Tân Phú, TP. Hồ Chí Minh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  83,
+        "query":  "38/10A Trần Khắc Chân, Phường Tân Định, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.7923542,
+        "lon":  106.6913549,
+        "displayName":  "Trần Khắc Chân, Khu phố 4, Phường Tân Định, Thành phố Hồ Chí Minh, 71008, Việt Nam"
+    },
+    {
+        "id":  84,
+        "query":  "Tầng 6 Tòa nhà VNPT, số 33 Lý Thái Tổ, Phường Kinh Bắc, Tỉnh Bắc Ninh, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  85,
+        "query":  "2/4 Lê Lai, Phường Bảy Hiền, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.7950218,
+        "lon":  106.6462625,
+        "displayName":  "Lê Lai, Phường Bảy Hiền, Thành phố Hồ Chí Minh, 72110, Việt Nam"
+    },
+    {
+        "id":  86,
+        "query":  "Kiot số 7, Tầng 1, Tòa CT2 Khu đô thị Bắc Linh Đàm, Phường Định Công, TP Hà Nội, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    },
+    {
+        "id":  87,
+        "query":  "13A Đường TL44, Phường An Phú Đông, TP Hồ Chí Minh, Việt Nam",
+        "status":  "geocoded",
+        "lat":  10.8518481,
+        "lon":  106.6961042,
+        "displayName":  "Đường N1, Khu phố 3, Phường An Phú Đông, Thành phố Hồ Chí Minh, 70000, Việt Nam"
+    },
+    {
+        "id":  88,
+        "query":  "Khu Hành Chính Hưng Tiến, Xã Đoan Hùng, Tỉnh Phú Thọ, Việt Nam",
+        "status":  "failed",
+        "lat":  null,
+        "lon":  null,
+        "displayName":  null
+    }
+]

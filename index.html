@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phú Thọ Factory - Supplier Logistics Map</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading-overlay" class="loading-overlay">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <div>데이터를 불러오는 중입니다...</div>
+    <div id="load-error" class="load-error" style="display:none"></div>
+  </div>
+</div>
+
+<header class="app-header">
+  <h1>Paldo Vina <span class="header-sub">- Supplier Logistics Map</span></h1>
+  <div class="header-factory" id="header-factory-list"></div>
+</header>
+
+<section id="dashboard-stats" class="dashboard-stats"></section>
+
+<section class="toolbar">
+  <div class="toolbar-row">
+    <input type="text" id="search-input" class="search-input"
+           placeholder="업체명 / 한글명 / 주소 / 취급자재 검색 (예: IC Food, 밀가루, 하노이)">
+
+    <div class="toolbar-actions">
+      <label class="chk-inline"><input type="checkbox" id="toggle-routes"> 공장-업체 연결선</label>
+      <button id="btn-run-geocode" class="btn-secondary" title="좌표 미확보 업체를 OpenStreetMap으로 지오코딩합니다">지오코딩 실행</button>
+      <label class="btn-secondary file-btn">CSV 업로드<input type="file" id="csv-upload" accept=".csv" hidden></label>
+      <button id="btn-export-csv" class="btn-secondary">CSV 다운로드</button>
+    </div>
+  </div>
+  <div class="toolbar-row">
+    <div class="filter-group">
+      <span class="filter-group-label">자재 카테고리</span>
+      <div id="category-filters" class="filter-chip-group"></div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-group-label">거리</span>
+      <div id="distance-filters" class="filter-chip-group"></div>
+    </div>
+  </div>
+  <div id="geocode-progress" class="geocode-progress"></div>
+  <div id="compare-status" class="compare-status" style="display:none"></div>
+</section>
+
+<main class="app-main">
+  <aside class="list-pane">
+    <div class="pane-title">공급업체 리스트</div>
+    <ul id="supplier-list" class="supplier-list"></ul>
+  </aside>
+
+  <section class="map-pane">
+    <div id="map"></div>
+  </section>
+
+  <aside class="panel-pane">
+    <div id="side-panel" class="side-panel"></div>
+  </aside>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<script src="data/suppliers.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/dataStore.js"></script>
+<script src="js/csvIO.js"></script>
+<script src="js/geocoder.js"></script>
+<script src="js/routing.js"></script>
+<script src="js/mapView.js"></script>
+<script src="js/panel.js"></script>
+<script src="js/listView.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
