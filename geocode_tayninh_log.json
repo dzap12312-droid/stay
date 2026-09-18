@@ -1,0 +1,666 @@
+[
+    {
+        "id":  92,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "527 Lê Thị Riêng, Phường Thới An, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8618977,
+        "lon":  106.655003
+    },
+    {
+        "id":  93,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "19 Triệu Quang Phục, Phường Chợ Lớn, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.753131,
+        "lon":  106.661424
+    },
+    {
+        "id":  94,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Đại Đồng, Tỉnh Bắc Ninh, Việt Nam",
+        "lat":  21.0827313,
+        "lon":  105.9884226
+    },
+    {
+        "id":  95,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu công nghiệp Hiệp Phước, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.6299071,
+        "lon":  106.7581376
+    },
+    {
+        "id":  96,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Đường Mễ Trì, TP Hà Nội, Việt Nam",
+        "lat":  21.011753,
+        "lon":  105.7740945
+    },
+    {
+        "id":  97,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "khu công nghiệp Nam Tân Uyên, TP Hồ Chí Minh, Việt Nam",
+        "lat":  11.0589706,
+        "lon":  106.7542337
+    },
+    {
+        "id":  98,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường 4, Quận Tân Bình, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8124764,
+        "lon":  106.6675031
+    },
+    {
+        "id":  99,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "KCN Đức Hoà 1, Tỉnh Tây Ninh, Việt Nam",
+        "lat":  10.7776493,
+        "lon":  106.4832073
+    },
+    {
+        "id":  100,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Đông Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8981946,
+        "lon":  106.6361448
+    },
+    {
+        "id":  101,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Đường Phạm Hùng, Phường Từ Liêm, TP Hà Nội, Việt Nam",
+        "lat":  21.0144445,
+        "lon":  105.7846096
+    },
+    {
+        "id":  102,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Tân Mỹ, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7258082,
+        "lon":  106.7238126
+    },
+    {
+        "id":  103,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "720A Điện Biên Phủ, Phường Thạnh Mỹ Tây, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7948354,
+        "lon":  106.7217434
+    },
+    {
+        "id":  104,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "Đường số 4, KCN Tam Phước, Phường Tam Phước, TP Đồng Nai, Việt Nam",
+        "lat":  10.8678612,
+        "lon":  106.9344498
+    },
+    {
+        "id":  105,
+        "status":  "geocoded",
+        "precision":  "province_level",
+        "query":  "TP. Hồ Chí Minh, Việt Nam",
+        "lat":  10.7737261,
+        "lon":  106.7166008
+    },
+    {
+        "id":  106,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Số 45 Mễ Trì, Phường Từ Liêm, TP Hà Nội, Việt Nam",
+        "lat":  21.0057961,
+        "lon":  105.7884342
+    },
+    {
+        "id":  107,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Vĩnh Tân, TP Hồ Chí Minh, Việt Nam",
+        "lat":  11.1137826,
+        "lon":  106.7071581
+    },
+    {
+        "id":  108,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "KCN Tân Kim, Tỉnh Tây Ninh, Việt Nam",
+        "lat":  10.6368337,
+        "lon":  106.6666092
+    },
+    {
+        "id":  109,
+        "status":  "geocoded",
+        "precision":  "province_level",
+        "query":  "Tỉnh Đồng Nai, Việt Nam",
+        "lat":  10.9110599,
+        "lon":  106.8431818
+    },
+    {
+        "id":  110,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "KCN Hải Sơn, Tỉnh Tây Ninh, Việt Nam",
+        "lat":  10.7777794,
+        "lon":  106.4707375
+    },
+    {
+        "id":  111,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "số 10 Phổ Quang, Phường Tân Sơn Hòa, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8072415,
+        "lon":  106.6684351
+    },
+    {
+        "id":  112,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Truông Mít, Tỉnh Tây Ninh, Việt Nam",
+        "lat":  11.2033758,
+        "lon":  106.3087369
+    },
+    {
+        "id":  113,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Vĩnh Tân, TP Hồ Chí Minh, Việt Nam",
+        "lat":  11.1137826,
+        "lon":  106.7071581
+    },
+    {
+        "id":  114,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Bình Mỹ, Tỉnh Ninh Bình, Việt Nam",
+        "lat":  20.4914206,
+        "lon":  106.0081321
+    },
+    {
+        "id":  115,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu Công Nghiệp Đồng An 2, TP Hồ Chí Minh, Việt Nam",
+        "lat":  11.1035205,
+        "lon":  106.6769626
+    },
+    {
+        "id":  116,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "KCN Tân Bình, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8145745,
+        "lon":  106.6142487
+    },
+    {
+        "id":  117,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "KCN Minh Quang, Tỉnh Hưng Yên, Việt Nam",
+        "lat":  20.9241659,
+        "lon":  106.1180803
+    },
+    {
+        "id":  118,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Cầu Giấy, TP Hà Nội, Việt Nam",
+        "lat":  21.0286704,
+        "lon":  105.7866045
+    },
+    {
+        "id":  119,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "17 Huỳnh Đình Hai, Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8046137,
+        "lon":  106.700635
+    },
+    {
+        "id":  120,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "đường Tôn Đức Thắng, Phường Sài Gòn, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7790847,
+        "lon":  106.7074875
+    },
+    {
+        "id":  121,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "86/58 Phổ Quang, Phường Tân Sơn Hòa, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8072415,
+        "lon":  106.6684351
+    },
+    {
+        "id":  122,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "47A Lê Trọng Tấn, Phường Tân Sơn Nhì, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8078302,
+        "lon":  106.6200862
+    },
+    {
+        "id":  123,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Hiệp Bình, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8391728,
+        "lon":  106.7253193
+    },
+    {
+        "id":  124,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "131 Phạm Huy Thông, Phường Gò Vấp, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8328875,
+        "lon":  106.681002
+    },
+    {
+        "id":  125,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Quận 12, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8612652,
+        "lon":  106.6642083
+    },
+    {
+        "id":  126,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "27C Quốc Hương, Phường An Khánh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8073843,
+        "lon":  106.7308879
+    },
+    {
+        "id":  127,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "khu công nghiệp Sóng Thần I, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8903543,
+        "lon":  106.7503403
+    },
+    {
+        "id":  128,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Tam Bình, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8686181,
+        "lon":  106.7350611
+    },
+    {
+        "id":  129,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "224-224A Nguyễn Văn Đậu, Phường Bình Lợi Trung, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8148448,
+        "lon":  106.694406
+    },
+    {
+        "id":  130,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "số 05 Hoàng Văn Thái, Phường Tân Mỹ, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7281853,
+        "lon":  106.7186464
+    },
+    {
+        "id":  131,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu công nghiệp Long Thành, Tỉnh Đồng Nai, Việt Nam",
+        "lat":  10.9389906,
+        "lon":  106.8863278
+    },
+    {
+        "id":  132,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "5/33 Nguyễn Văn Vĩnh, Phường Tân Sơn Nhất, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8072337,
+        "lon":  106.6621556
+    },
+    {
+        "id":  133,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "728-730 Võ Văn Kiệt, Phường Chợ Quán, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7526767,
+        "lon":  106.6816601
+    },
+    {
+        "id":  134,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Nhiêu Lộc, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7857564,
+        "lon":  106.6751204
+    },
+    {
+        "id":  135,
+        "status":  "geocoded",
+        "precision":  "province_level",
+        "query":  "Tỉnh Bà Rịa - Vũng Tàu, Việt Nam",
+        "lat":  10.5134159,
+        "lon":  107.1851769
+    },
+    {
+        "id":  136,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Định Công, TP Hà Nội, Việt Nam",
+        "lat":  20.9779202,
+        "lon":  105.8244431
+    },
+    {
+        "id":  137,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Thành phố Thủy Nguyên, TP Hải Phòng, Việt Nam",
+        "lat":  20.915622,
+        "lon":  106.6748219
+    },
+    {
+        "id":  138,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Trấn Biên, TP Đồng Nai, Việt Nam",
+        "lat":  10.9507748,
+        "lon":  106.8221068
+    },
+    {
+        "id":  139,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Tuệ Tĩnh, TP Hải Phòng, Việt Nam",
+        "lat":  20.9731541,
+        "lon":  106.2491762
+    },
+    {
+        "id":  140,
+        "status":  "geocoded",
+        "precision":  "province_level",
+        "query":  "Tỉnh Quảng Ninh, Việt Nam",
+        "lat":  21.5268613,
+        "lon":  107.9698254
+    },
+    {
+        "id":  141,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Bảy Hiền, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7895387,
+        "lon":  106.6472288
+    },
+    {
+        "id":  142,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8111809,
+        "lon":  106.7033938
+    },
+    {
+        "id":  143,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "khu công nghiệp Lê Minh Xuân, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7426409,
+        "lon":  106.5436646
+    },
+    {
+        "id":  144,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường 7, Quận Bình Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8003967,
+        "lon":  106.6597746
+    },
+    {
+        "id":  145,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "số 16 Phan Chu Trinh, Phường Cửa Nam, TP Hà Nội, Việt Nam",
+        "lat":  21.0208397,
+        "lon":  105.8558574
+    },
+    {
+        "id":  146,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Quận Tân Phú, TP. Hồ Chí Minh, Việt Nam",
+        "lat":  10.7918681,
+        "lon":  106.6277515
+    },
+    {
+        "id":  147,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường An Lạc, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7381994,
+        "lon":  106.6148874
+    },
+    {
+        "id":  148,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "KCN Long Bình (AMATA), TP Đồng Nai, Việt Nam",
+        "lat":  10.9389906,
+        "lon":  106.8863278
+    },
+    {
+        "id":  149,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Bùi Công Trừng, Xã Đông Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.9110821,
+        "lon":  106.673825
+    },
+    {
+        "id":  150,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu Công nghiệp Phú Hội, Tỉnh Lâm Đồng, Việt Nam",
+        "lat":  11.6893788,
+        "lon":  108.3791087
+    },
+    {
+        "id":  151,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Tân Châu, Tỉnh Tây Ninh, Việt Nam",
+        "lat":  11.5569932,
+        "lon":  106.1608072
+    },
+    {
+        "id":  152,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "106/10 Đường Phan Văn Trị, Phường Bình Thạnh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8094915,
+        "lon":  106.6962262
+    },
+    {
+        "id":  153,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Khu Phố 3, Phường An Khánh, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8060413,
+        "lon":  106.742979
+    },
+    {
+        "id":  154,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu Công nghiệp, Tỉnh Bắc Ninh, Việt Nam",
+        "lat":  21.0919419,
+        "lon":  105.9619937
+    },
+    {
+        "id":  155,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Định Công, TP Hà Nội, Việt Nam",
+        "lat":  20.9779202,
+        "lon":  105.8244431
+    },
+    {
+        "id":  156,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Xã Lộc Ninh, Tỉnh Tây Ninh, Việt Nam",
+        "lat":  11.280381,
+        "lon":  106.3160063
+    },
+    {
+        "id":  157,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Tân Định, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.790563,
+        "lon":  106.6944598
+    },
+    {
+        "id":  158,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Nghĩa Đô, TP Hà Nội, Việt Nam",
+        "lat":  21.0432977,
+        "lon":  105.7943681
+    },
+    {
+        "id":  159,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu công nghiệp Cẩm Khê, Tỉnh Phú Thọ, Việt Nam",
+        "lat":  21.4355703,
+        "lon":  105.1082877
+    },
+    {
+        "id":  160,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Đường Lữ Gia, Phường Phú Thọ, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.9561758,
+        "lon":  106.6983514
+    },
+    {
+        "id":  161,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "Số 5 ngõ 65, phố Mai Dịch, Phường Mai Dịch, TP Hà Nội, Việt Nam",
+        "lat":  21.0391215,
+        "lon":  105.7737914
+    },
+    {
+        "id":  162,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "260 Nguyễn Thái Sơn, Phường Hạnh Thông, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8202353,
+        "lon":  106.6834823
+    },
+    {
+        "id":  163,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu công nghiệp Mỹ Phước 3, TP Hồ Chí Minh, Việt Nam",
+        "lat":  11.0967709,
+        "lon":  106.6501512
+    },
+    {
+        "id":  164,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Thượng Hồng, Tỉnh Hưng Yên, Việt Nam",
+        "lat":  20.9356214,
+        "lon":  106.127471
+    },
+    {
+        "id":  165,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "34 Bến Cát, Phường Tân Sơn Nhất, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7854994,
+        "lon":  106.6565763
+    },
+    {
+        "id":  166,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "Số 224, Đường Hà Huy Giáp, Phường Trấn Biên, TP Đồng Nai, Việt Nam",
+        "lat":  10.9490945,
+        "lon":  106.8241788
+    },
+    {
+        "id":  167,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Bán đảo Linh Đàm, Phường Hoàng Liệt, TP Hà Nội, Việt Nam",
+        "lat":  20.9637289,
+        "lon":  105.8289548
+    },
+    {
+        "id":  168,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Bình Lợi Trung, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8227002,
+        "lon":  106.7032473
+    },
+    {
+        "id":  169,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "phố Hoàng Hoa Thám, Phường Tây Hồ, TP Hà Nội, Việt Nam",
+        "lat":  21.0474978,
+        "lon":  105.8071263
+    },
+    {
+        "id":  170,
+        "status":  "geocoded",
+        "precision":  "industrial_zone",
+        "query":  "Khu công nghiệp Tân Bình, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8145745,
+        "lon":  106.6142487
+    },
+    {
+        "id":  171,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Kinh Bắc, Tỉnh Bắc Ninh, Việt Nam",
+        "lat":  21.1769224,
+        "lon":  106.0579293
+    },
+    {
+        "id":  172,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "2/4 Lê Lai, Phường Bảy Hiền, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.7950218,
+        "lon":  106.6462625
+    },
+    {
+        "id":  173,
+        "status":  "geocoded",
+        "precision":  "ward_district",
+        "query":  "Phường Định Công, TP Hà Nội, Việt Nam",
+        "lat":  20.9779202,
+        "lon":  105.8244431
+    },
+    {
+        "id":  174,
+        "status":  "geocoded",
+        "precision":  "exact",
+        "query":  "13A Đường TL44, Phường An Phú Đông, TP Hồ Chí Minh, Việt Nam",
+        "lat":  10.8518481,
+        "lon":  106.6961042
+    }
+]
