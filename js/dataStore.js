@@ -18,7 +18,7 @@ const EDITABLE_FIELDS = [
   'address', 'materialCategory', 'materialDetail',
   'moq', 'deliveryUnit', 'vehicleType', 'vehicleCBM',
   'deliveryFrequencyPerWeek', 'deliveryDays', 'loadingRate', 'notes',
-  'locationVerified', 'latitude', 'longitude', 'locationStatus'
+  'locationVerified', 'latitude', 'longitude', 'locationStatus', 'factoryUsage'
 ];
 
 const DataStore = (function () {

@@ -7,7 +7,8 @@ const Filters = (function () {
   const state = {
     search: '',
     categories: new Set(CATEGORIES.map(c => c.key)), // 기본값: 전체 선택
-    distanceBands: new Set(DISTANCE_BANDS.map(b => b.key))
+    distanceBands: new Set(DISTANCE_BANDS.map(b => b.key)),
+    factoryUsages: new Set(Object.keys(FACTORY_USAGE_LABEL)) // 기본값: 전체 선택 (푸토/떠이닌/양쪽)
   };
 
   function setSearch(text) {
@@ -22,8 +23,13 @@ const Filters = (function () {
     if (on) state.distanceBands.add(key); else state.distanceBands.delete(key);
   }
 
+  function toggleFactoryUsage(key, on) {
+    if (on) state.factoryUsages.add(key); else state.factoryUsages.delete(key);
+  }
+
   function isCategoryOn(key) { return state.categories.has(key); }
   function isDistanceBandOn(key) { return state.distanceBands.has(key); }
+  function isFactoryUsageOn(key) { return state.factoryUsages.has(key); }
 
   function matchesSearch(s) {
     if (!state.search) return true;
@@ -45,9 +51,14 @@ const Filters = (function () {
       if (band && !state.distanceBands.has(band.key)) return false;
       if (!band && state.distanceBands.size !== DISTANCE_BANDS.length) return false;
 
+      if (s.factoryUsage && !state.factoryUsages.has(s.factoryUsage)) return false;
+
       return true;
     });
   }
 
-  return { setSearch, toggleCategory, toggleDistanceBand, isCategoryOn, isDistanceBandOn, apply };
+  return {
+    setSearch, toggleCategory, toggleDistanceBand, toggleFactoryUsage,
+    isCategoryOn, isDistanceBandOn, isFactoryUsageOn, apply
+  };
 })();

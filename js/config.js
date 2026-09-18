@@ -93,6 +93,13 @@ function getDistanceBand(km) {
   return DISTANCE_BANDS.find(b => km >= b.min && km < b.max) || DISTANCE_BANDS[DISTANCE_BANDS.length - 1];
 }
 
+// factoryUsage 표시 라벨/색상 (요구사항: 푸토전용/떠이닌전용/양쪽 공용 구분)
+const FACTORY_USAGE_LABEL = {
+  phutho:  { label: '푸토공장만 사용',   short: '푸토', color: '#f39c12' },
+  tayninh: { label: '떠이닌공장만 사용', short: '떠이닌', color: '#8e44ad' },
+  both:    { label: '양측 공장 모두 사용', short: '양쪽', color: '#16a085' }
+};
+
 // locationType 표시 라벨
 const LOCATION_TYPE_LABEL = {
   office: '법인 주소',

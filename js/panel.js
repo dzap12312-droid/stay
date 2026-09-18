@@ -41,11 +41,18 @@ const Panel = (function () {
     return suffix ? `${v}${suffix}` : String(v);
   }
 
+  function factoryDistanceLabel(s) {
+    const factory = FACTORIES.find(f => f.id === s.sourceFactory);
+    return factory ? `${factory.nameKR} 거리` : '공장 거리';
+  }
+
   function renderView(s) {
     const cat = CATEGORY_MAP[classifyCategory(s.materialDetail)] || CATEGORY_MAP.etc;
     const verifiedBadge = s.locationVerified
       ? '<span class="badge verified">● 확인 완료</span>'
       : '<span class="badge unverified">○ 미확인</span>';
+    const usage = FACTORY_USAGE_LABEL[s.factoryUsage];
+    const usageBadge = usage ? `<span class="badge factory-usage" style="border-color:${usage.color};color:${usage.color}">${usage.label}</span>` : '';
     const locTypeLabel = LOCATION_TYPE_LABEL[s.locationType] || LOCATION_TYPE_LABEL.unknown;
     const precisionLabels = {
       industrial_zone: '산업단지 근사 위치',
@@ -66,7 +73,7 @@ const Panel = (function () {
         </div>
         <button class="btn-edit" id="btn-edit">수정</button>
       </div>
-      <div class="panel-badges">${verifiedBadge}<span class="badge loctype">${locTypeLabel}</span>${precisionBadge}${noGeoBadge}</div>
+      <div class="panel-badges">${usageBadge}${verifiedBadge}<span class="badge loctype">${locTypeLabel}</span>${precisionBadge}${noGeoBadge}</div>
 
       <section class="panel-section">
         <h4>공급업체 정보</h4>
@@ -74,7 +81,7 @@ const Panel = (function () {
           <dt>업체명</dt><dd>${s.supplierName}</dd>
           <dt>업체명 한글</dt><dd>${val(s.supplierNameKR)}</dd>
           <dt>주소</dt><dd>${s.address}</dd>
-          <dt>푸토공장 거리</dt><dd>약 ${val(s.distanceKm)} km</dd>
+          <dt>${factoryDistanceLabel(s)}</dt><dd>${s.distanceKm != null ? '약 ' + s.distanceKm + ' km' : NA}</dd>
         </dl>
       </section>
 
@@ -142,6 +149,12 @@ const Panel = (function () {
         <label>주소
           <textarea name="address" rows="2">${escapeHtml(s.address || '')}</textarea>
         </label>
+        <label>공장 사용 구분
+          <select name="factoryUsage">
+            ${Object.keys(FACTORY_USAGE_LABEL).map(key => `<option value="${key}" ${s.factoryUsage === key ? 'selected' : ''}>${FACTORY_USAGE_LABEL[key].label}</option>`).join('')}
+          </select>
+        </label>
+        <p class="field-hint">이 업체가 실제로 어느 공장에 납품하는지 나타냅니다. 원본 엑셀 대사 결과와 다르게 확인된 경우에만 수정하세요.</p>
         <label>자재 카테고리
           <input type="text" name="materialCategory" value="${escapeHtml(s.materialCategory || '')}">
         </label>
@@ -202,6 +215,7 @@ const Panel = (function () {
         supplierName: nameVal || s.supplierName,
         supplierNameKR: nameKrVal || s.supplierNameKR,
         address: fd.get('address'),
+        factoryUsage: fd.get('factoryUsage'),
         materialCategory: fd.get('materialCategory'),
         materialDetail: fd.get('materialDetail'),
         moq: fd.get('moq') || null,

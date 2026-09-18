@@ -31,6 +31,8 @@ const ListView = (function () {
     }
     const hasGeo = s.latitude != null && s.longitude != null;
     const compareChecked = compareIds.has(s.id);
+    const usage = FACTORY_USAGE_LABEL[s.factoryUsage];
+    const usageBadge = usage ? `<span class="list-usage-badge" style="color:${usage.color};border-color:${usage.color}" title="${usage.label}">${usage.short}</span>` : '';
     return `
       <li class="list-row ${s.id === selectedId ? 'selected' : ''}" data-id="${s.id}">
         <label class="list-compare-check" title="이동경로 비교에 추가 (최대 ${MAX_COMPARE}개)">
@@ -40,7 +42,7 @@ const ListView = (function () {
         <span class="list-idx">${s.id}</span>
         <span class="list-dot" style="background:${cat.color}"></span>
         <div class="list-main">
-          <div class="list-name">${s.supplierNameKR || s.supplierName} ${geoBadge}</div>
+          <div class="list-name">${usageBadge}${s.supplierNameKR || s.supplierName} ${geoBadge}</div>
           <div class="list-sub">${s.materialDetail || s.materialCategory || ''}</div>
         </div>
         <div class="list-meta">

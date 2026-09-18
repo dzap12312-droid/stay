@@ -26,8 +26,15 @@ const Dashboard = (function () {
     const exactGeocoded = suppliers.filter(s => s.latitude != null && (s.geocodePrecision === 'exact' || !s.geocodePrecision)).length;
     const approxGeocoded = geocoded - exactGeocoded;
 
+    const usageCounts = Object.fromEntries(Object.keys(FACTORY_USAGE_LABEL).map(k => [k, 0]));
+    suppliers.forEach(s => { if (usageCounts[s.factoryUsage] !== undefined) usageCounts[s.factoryUsage]++; });
+    const usageCardsHtml = Object.keys(FACTORY_USAGE_LABEL).map(key => `
+      <div class="stat-card"><div class="stat-value" style="color:${FACTORY_USAGE_LABEL[key].color}">${usageCounts[key]}</div><div class="stat-label">${FACTORY_USAGE_LABEL[key].label}</div></div>
+    `).join('');
+
     container.innerHTML = `
       <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">전체 공급업체</div></div>
+      ${usageCardsHtml}
       <div class="stat-card"><div class="stat-value">${within100}</div><div class="stat-label">100km 이내</div></div>
       <div class="stat-card"><div class="stat-value">${between100_300}</div><div class="stat-label">100~300km</div></div>
       <div class="stat-card"><div class="stat-value">${over300}</div><div class="stat-label">300km 이상</div></div>

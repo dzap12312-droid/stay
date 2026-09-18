@@ -6,6 +6,7 @@
 (async function () {
   const els = {
     search: document.getElementById('search-input'),
+    factoryUsageFilters: document.getElementById('factory-usage-filters'),
     categoryFilters: document.getElementById('category-filters'),
     distanceFilters: document.getElementById('distance-filters'),
     csvUpload: document.getElementById('csv-upload'),
@@ -87,6 +88,24 @@
     });
   }
 
+  function buildFactoryUsageFilterUI() {
+    els.factoryUsageFilters.innerHTML = Object.keys(FACTORY_USAGE_LABEL).map(key => {
+      const f = FACTORY_USAGE_LABEL[key];
+      return `
+      <label class="filter-chip" data-key="${key}">
+        <input type="checkbox" checked value="${key}">
+        <span class="chip-dot" style="background:${f.color}"></span>${f.label}
+      </label>`;
+    }).join('');
+
+    els.factoryUsageFilters.querySelectorAll('input[type=checkbox]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        Filters.toggleFactoryUsage(cb.value, cb.checked);
+        refresh();
+      });
+    });
+  }
+
   function buildDistanceFilterUI() {
     els.distanceFilters.innerHTML = DISTANCE_BANDS.map(b => `
       <label class="filter-chip">
@@ -136,7 +155,9 @@
 
   function wireGeocode() {
     els.btnRunGeocode.addEventListener('click', async () => {
-      const targets = DataStore.getAll().filter(s => s.locationStatus !== 'geocoded' && s.locationStatus !== 'manual' && s.locationStatus !== 'verified');
+      const targets = DataStore.getAll().filter(s =>
+        s.locationStatus !== 'geocoded' && s.locationStatus !== 'manual' &&
+        s.locationStatus !== 'verified' && s.locationStatus !== 'overseas');
       if (targets.length === 0) {
         els.geocodeProgress.textContent = '지오코딩이 필요한 업체가 없습니다.';
         return;
@@ -186,6 +207,7 @@
     Dashboard.init('dashboard-stats');
     Panel.showEmpty();
 
+    buildFactoryUsageFilterUI();
     buildCategoryFilterUI();
     buildDistanceFilterUI();
     wireSearch();

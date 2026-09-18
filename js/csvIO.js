@@ -8,7 +8,7 @@
  */
 
 const CSV_COLUMNS = [
-  'ID', 'Supplier Name', 'Supplier Name KR', 'Address', 'Distance KM',
+  'ID', 'Supplier Name', 'Supplier Name KR', 'Address', 'Factory Usage', 'Distance KM',
   'Material Category', 'Material Detail', 'Latitude', 'Longitude',
   'MOQ', 'Delivery Unit', 'Vehicle Type', 'Vehicle CBM',
   'Delivery Frequency Per Week', 'Delivery Days', 'Loading Rate', 'Notes'
@@ -25,7 +25,7 @@ function exportSuppliersToCsv(suppliers) {
   const lines = [CSV_COLUMNS.join(',')];
   for (const s of suppliers) {
     const row = [
-      s.id, s.supplierName, s.supplierNameKR, s.address, s.distanceKm,
+      s.id, s.supplierName, s.supplierNameKR, s.address, s.factoryUsage, s.distanceKm,
       s.materialCategory, s.materialDetail, s.latitude, s.longitude,
       s.moq, s.deliveryUnit, s.vehicleType, s.vehicleCBM,
       s.deliveryFrequencyPerWeek, (s.deliveryDays || []).join(';'), s.loadingRate, s.notes
@@ -108,6 +108,7 @@ function parseSuppliersCsv(text) {
       patch[key] = transform ? transform(raw) : raw;
     };
     setIf('Address', 'address');
+    setIf('Factory Usage', 'factoryUsage');
     setIf('Material Category', 'materialCategory');
     setIf('Material Detail', 'materialDetail');
     setIf('Latitude', 'latitude', toNumberOrNull);

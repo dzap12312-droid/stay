@@ -81,17 +81,24 @@ const MapView = (function () {
     });
   }
 
+  function distanceRowLabel(s) {
+    const factory = FACTORIES.find(f => f.id === s.sourceFactory);
+    return factory ? `${factory.nameKR} 거리` : '공장 거리';
+  }
+
   function popupHtml(s) {
     const na = '미입력';
     const precisionNote = PRECISION_LABEL[s.geocodePrecision];
+    const usage = FACTORY_USAGE_LABEL[s.factoryUsage];
     return `
       <div class="popup-card">
         <div class="popup-title">${s.supplierNameKR || na}</div>
         <div class="popup-sub">${s.supplierName}</div>
+        ${usage ? `<div class="popup-usage-badge" style="color:${usage.color}">● ${usage.label}</div>` : ''}
         ${precisionNote ? `<div class="popup-precision-note">⚠ ${precisionNote}</div>` : ''}
         <table class="popup-table">
           <tr><th>주소</th><td>${s.address}</td></tr>
-          <tr><th>푸토공장 거리</th><td>약 ${s.distanceKm ?? na} km</td></tr>
+          <tr><th>${distanceRowLabel(s)}</th><td>${s.distanceKm != null ? '약 ' + s.distanceKm + ' km' : na}</td></tr>
           <tr><th>취급 자재</th><td>${s.materialDetail || na}</td></tr>
           <tr><th>MOQ</th><td>${s.moq ?? na}</td></tr>
           <tr><th>납품단위</th><td>${s.deliveryUnit ?? na}</td></tr>
