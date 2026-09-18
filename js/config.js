@@ -93,6 +93,14 @@ function getDistanceBand(km) {
   return DISTANCE_BANDS.find(b => km >= b.min && km < b.max) || DISTANCE_BANDS[DISTANCE_BANDS.length - 1];
 }
 
+// 거리 표시용 포맷: 1000km 이상은 정확한 값 대신 "1000km 이상"으로만 표시한다
+// (원거리 reportedDistanceKm은 정밀 값이 아닌 경우가 많음).
+function formatDistanceKm(km) {
+  if (km === null || km === undefined) return null;
+  if (km >= 1000) return '1000km 이상';
+  return `약 ${km} km`;
+}
+
 // factoryUsage 표시 라벨/색상 (요구사항: 푸토전용/떠이닌전용/양쪽 공용 구분)
 const FACTORY_USAGE_LABEL = {
   phutho:  { label: '푸토공장만 사용',   short: '푸토', color: '#f39c12' },

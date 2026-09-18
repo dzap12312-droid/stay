@@ -98,7 +98,7 @@ const MapView = (function () {
         ${precisionNote ? `<div class="popup-precision-note">⚠ ${precisionNote}</div>` : ''}
         <table class="popup-table">
           <tr><th>주소</th><td>${s.address}</td></tr>
-          <tr><th>${distanceRowLabel(s)}</th><td>${s.distanceKm != null ? '약 ' + s.distanceKm + ' km' : na}</td></tr>
+          <tr><th>${distanceRowLabel(s)}</th><td>${formatDistanceKm(s.distanceKm) ?? na}</td></tr>
           <tr><th>취급 자재</th><td>${s.materialDetail || na}</td></tr>
           <tr><th>MOQ</th><td>${s.moq ?? na}</td></tr>
           <tr><th>납품단위</th><td>${s.deliveryUnit ?? na}</td></tr>

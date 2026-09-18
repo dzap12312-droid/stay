@@ -81,7 +81,7 @@ const Panel = (function () {
           <dt>업체명</dt><dd>${s.supplierName}</dd>
           <dt>업체명 한글</dt><dd>${val(s.supplierNameKR)}</dd>
           <dt>주소</dt><dd>${s.address}</dd>
-          <dt>${factoryDistanceLabel(s)}</dt><dd>${s.distanceKm != null ? '약 ' + s.distanceKm + ' km' : NA}</dd>
+          <dt>${factoryDistanceLabel(s)}</dt><dd>${formatDistanceKm(s.distanceKm) ?? NA}</dd>
         </dl>
       </section>
 

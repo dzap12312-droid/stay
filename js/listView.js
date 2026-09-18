@@ -46,7 +46,7 @@ const ListView = (function () {
           <div class="list-sub">${s.materialDetail || s.materialCategory || ''}</div>
         </div>
         <div class="list-meta">
-          <span>약 ${s.distanceKm ?? '-'}km</span>
+          <span>${formatDistanceKm(s.distanceKm) ?? '-'}</span>
           <span>${freq}</span>
           <span>${rate}</span>
         </div>
