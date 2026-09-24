@@ -16,7 +16,8 @@ Node.js(https://nodejs.org)만 설치되어 있으면, `npm install`/`npm run di
 ```
 업무관리/
 ├─ run.bat                         # 더블클릭으로 바로 실행(최초 1회 자동 설치)
-├─ create_shortcut.bat             # 바탕화면에 아이콘 생성
+├─ create_shortcut.bat             # 바탕화면에 아이콘 생성 (create_shortcut.ps1 호출)
+├─ create_shortcut.ps1
 ├─ package.json
 ├─ main.js          # 창 생성, 파일 저장/로드(ipcMain.handle), 단일 인스턴스
 ├─ preload.js       # window.api 노출 (contextBridge)
