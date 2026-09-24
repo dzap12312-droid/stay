@@ -5,7 +5,7 @@ cd /d "%~dp0"
 powershell -NoProfile -Command ^
   "$ws = New-Object -ComObject WScript.Shell;" ^
   "$shortcut = $ws.CreateShortcut([System.IO.Path]::Combine([Environment]::GetFolderPath('Desktop'), '업무관리.lnk'));" ^
-  "$shortcut.TargetPath = (Resolve-Path '실행.bat').Path;" ^
+  "$shortcut.TargetPath = (Resolve-Path 'run.bat').Path;" ^
   "$shortcut.WorkingDirectory = (Get-Location).Path;" ^
   "$shortcut.IconLocation = (Resolve-Path 'assets\icon.ico').Path;" ^
   "$shortcut.Save()"
