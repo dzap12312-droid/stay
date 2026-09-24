@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'" />
+<title>업무관리</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>업무관리</h1>
+
+  <form id="add-form" class="add-form" autocomplete="off">
+    <input id="assignee-input" name="assignee" list="assignee-list" placeholder="담당자" />
+    <input id="task-input" name="task" placeholder="업무 내용" />
+    <input id="date-input" name="date" type="date" />
+    <button type="submit">추가</button>
+    <datalist id="assignee-list"></datalist>
+  </form>
+
+  <div class="filter-row">
+    <span class="filter-label">상태:</span>
+    <div id="status-filter" class="filter-group">
+      <button type="button" data-status="all" class="active">전체</button>
+      <button type="button" data-status="incomplete">미완료</button>
+      <button type="button" data-status="completed">완료</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">담당자:</span>
+    <div id="assignee-filter" class="filter-group">
+      <button type="button" data-assignee="all" class="active">전체</button>
+    </div>
+  </div>
+
+  <div id="empty-message" class="empty-message" hidden></div>
+  <table id="task-table" class="task-table">
+    <tbody id="task-body"></tbody>
+  </table>
+
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
