@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>팔도비나 푸토공장 식대 관리</title>
+<link rel="icon" href="assets/paldo-logo.png">
+<style>
+  :root {
+    --navy: #1F3A5F;
+    --navy-hover: #172C48;
+    --slate: #5B6B7F;
+    --bg: #F7F8FA;
+    --card: #FFFFFF;
+    --line: #E3E6EB;
+    --grid: #D9DEE5;
+    --th-bg: #EEF2F6;
+    --weekend: #F3F4F6;
+    --red: #B42318;
+    --red-bg: #FDECEC;
+    --green: #1A7F5A;
+    --text: #1F2933;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .c-red { color: var(--red); }
+  .c-green { color: var(--green); }
+  .muted { color: var(--slate); }
+  button { font: inherit; cursor: pointer; }
+
+  /* 헤더 */
+  header.top {
+    background: var(--navy);
+    color: #fff;
+    display: flex; align-items: center; gap: 14px;
+    padding: 10px 20px;
+  }
+  .logo-chip { background: #fff; border-radius: 6px; padding: 4px 10px; display: flex; align-items: center; }
+  .logo-chip img { height: 30px; display: block; }
+  header.top h1 { font-size: 18px; margin: 0; font-weight: 700; letter-spacing: -0.2px; }
+  header.top .sub { margin-left: auto; font-size: 12px; opacity: .8; }
+
+  main { max-width: 1280px; margin: 0 auto; padding: 16px 20px 40px; }
+
+  /* 버튼 */
+  .btn {
+    border: 1px solid var(--navy); background: var(--navy); color: #fff;
+    border-radius: 6px; padding: 7px 12px; font-size: 13px; line-height: 1.2;
+  }
+  .btn:hover { background: var(--navy-hover); }
+  .btn.ghost { background: #fff; color: var(--navy); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--navy); }
+  .btn.danger { background: #fff; color: var(--red); border-color: var(--line); }
+  .btn.danger:hover { border-color: var(--red); }
+  .btn.sm { padding: 4px 8px; font-size: 12px; }
+
+  /* 월 탭 */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+  .tabs { display: flex; gap: 4px; overflow-x: auto; flex: 1 1 auto; min-width: 0; padding-bottom: 2px; }
+  .tab {
+    border: 1px solid var(--line); background: #fff; color: var(--slate);
+    border-radius: 6px; padding: 7px 12px; font-size: 13px; white-space: nowrap;
+  }
+  .tab:hover { border-color: var(--navy); color: var(--navy); }
+  .tab.active { background: var(--navy); border-color: var(--navy); color: #fff; font-weight: 600; }
+  .tool-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* 요약 카드 */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+  .stat { padding: 14px 16px; }
+  .stat .label { color: var(--slate); font-size: 12px; margin-bottom: 4px; display: flex; justify-content: space-between; gap: 6px; }
+  .stat .value { font-size: 22px; font-weight: 700; }
+  .stat .value small { font-size: 12px; font-weight: 500; color: var(--slate); margin-left: 3px; }
+  .stat .foot { font-size: 12px; color: var(--slate); margin-top: 4px; min-height: 18px; }
+  .stat input.carry-input {
+    width: 100%; font-size: 20px; font-weight: 700; border: 1px solid var(--line); border-radius: 6px;
+    padding: 3px 8px; text-align: right; font-variant-numeric: tabular-nums; color: var(--text);
+  }
+  .tag { font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--slate); background: #fff; }
+
+  /* 레이아웃 */
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; align-items: start; }
+  .side { display: flex; flex-direction: column; gap: 16px; }
+  .card-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  .card-h h2 { font-size: 14px; margin: 0; color: var(--navy); }
+  .card-b { padding: 12px 14px; }
+
+  /* 일별 지출표 */
+  .table-wrap { overflow-x: auto; }
+  table.sheet { border-collapse: collapse; width: 100%; min-width: 560px; }
+  table.sheet th, table.sheet td { border: 1px solid var(--grid); padding: 0; height: 32px; }
+  table.sheet thead th {
+    background: var(--th-bg); color: var(--navy); font-weight: 600; font-size: 13px; padding: 0 8px;
+    position: sticky; top: 0; z-index: 1;
+  }
+  table.sheet td.date, table.sheet td.dow { text-align: center; padding: 0 6px; white-space: nowrap; }
+  table.sheet td.dow { color: var(--slate); width: 44px; }
+  table.sheet td.date { width: 78px; font-variant-numeric: tabular-nums; }
+  table.sheet tr.weekend td { background: var(--weekend); }
+  table.sheet tr.today td.date { box-shadow: inset 3px 0 0 var(--navy); font-weight: 700; }
+  table.sheet td.bal { padding: 0 10px; width: 130px; }
+  table.sheet tfoot td { background: var(--th-bg); font-weight: 700; padding: 0 10px; height: 34px; }
+  table.sheet tfoot td.lbl { text-align: center; color: var(--navy); }
+  .dow.sat { color: var(--navy) !important; }
+  .dow.sun { color: var(--red) !important; }
+
+  .cell { position: relative; display: flex; align-items: stretch; height: 100%; }
+  .cell input {
+    flex: 1; min-width: 0; width: 100%; border: 0; background: transparent; padding: 0 26px 0 8px;
+    text-align: right; font: inherit; font-variant-numeric: tabular-nums; color: var(--red); height: 31px;
+  }
+  .cell input:focus { outline: 2px solid var(--navy); outline-offset: -2px; background: #fff; }
+  .cell input.invalid { outline: 2px solid var(--red); outline-offset: -2px; background: var(--red-bg); }
+  .cell .memo-btn {
+    position: absolute; right: 2px; top: 50%; transform: translateY(-50%);
+    width: 20px; height: 20px; border: 0; background: transparent; color: #B8C0CC; padding: 0;
+    border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  }
+  .cell .memo-btn:hover { color: var(--navy); background: var(--th-bg); }
+  .cell.has-memo .memo-btn { color: var(--navy); }
+  .cell.has-memo::after {
+    content: ""; position: absolute; top: 0; right: 0;
+    border-top: 7px solid var(--navy); border-left: 7px solid transparent;
+  }
+
+  /* 회비 명단 */
+  .members { width: 100%; border-collapse: collapse; }
+  .members td { padding: 6px 4px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  .members tr:last-child td { border-bottom: 0; }
+  .members input[type=text] {
+    width: 100%; border: 1px solid transparent; border-radius: 4px; padding: 4px 6px; font: inherit; background: transparent;
+  }
+  .members input[type=text]:hover { border-color: var(--line); }
+  .members input[type=text]:focus { border-color: var(--navy); outline: 0; background: #fff; }
+  .members input.amt { text-align: right; font-variant-numeric: tabular-nums; }
+  .members input.invalid { border-color: var(--red) !important; background: var(--red-bg); }
+  .members .chk { width: 26px; text-align: center; }
+  .members .chk input { width: 16px; height: 16px; accent-color: var(--navy); }
+  .members .st { width: 52px; text-align: center; }
+  .members .del { width: 26px; text-align: center; }
+  .icon-btn { border: 0; background: transparent; color: var(--slate); padding: 2px 4px; border-radius: 4px; font-size: 14px; }
+  .icon-btn:hover { color: var(--red); background: var(--red-bg); }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; border-radius: 4px; padding: 1px 6px; }
+  .badge.unpaid { background: var(--red-bg); color: var(--red); }
+  .badge.paid { background: #E8F3EE; color: var(--green); }
+  .badge.gone { background: var(--th-bg); color: var(--slate); }
+  .members-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; gap: 8px; font-size: 13px; }
+  .add-row { display: flex; gap: 6px; margin-top: 10px; }
+  .add-row input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; font: inherit; }
+  .add-row input.amt { text-align: right; font-variant-numeric: tabular-nums; flex: 0 0 120px; }
+  .add-row input:focus { outline: 0; border-color: var(--navy); }
+
+  /* 계좌 카드 */
+  .account { display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: start; }
+  .qr-thumb { border: 1px solid var(--line); border-radius: 6px; padding: 4px; background: #fff; cursor: zoom-in; display: block; width: 112px; }
+  .qr-thumb img { width: 100%; display: block; }
+  .qr-hint { font-size: 11px; color: var(--slate); text-align: center; margin-top: 4px; }
+  .acc-row { margin-bottom: 8px; }
+  .acc-row .k { font-size: 11px; color: var(--slate); }
+  .acc-row .v { font-size: 14px; font-weight: 600; word-break: keep-all; }
+  .acc-no { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .acc-no .v { font-variant-numeric: tabular-nums; font-size: 15px; }
+
+  /* 메모 / 지표 */
+  .memo-list { width: 100%; border-collapse: collapse; }
+  .memo-list td { padding: 4px 2px; border-bottom: 1px solid var(--line); }
+  .memo-list input { width: 100%; border: 1px solid transparent; border-radius: 4px; padding: 4px 6px; font: inherit; background: transparent; }
+  .memo-list input:hover { border-color: var(--line); }
+  .memo-list input:focus { border-color: var(--navy); outline: 0; background: #fff; }
+  .memo-list input.amt { text-align: right; font-variant-numeric: tabular-nums; }
+  .memo-list input.invalid { border-color: var(--red) !important; background: var(--red-bg); }
+  .kv { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+  .kv:last-child { border-bottom: 0; }
+  .kv .k { color: var(--slate); }
+
+  /* 모달 */
+  .modal-bg { position: fixed; inset: 0; background: rgba(17, 24, 39, .45); display: none; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+  .modal-bg.open { display: flex; }
+  .modal { background: #fff; border-radius: var(--radius); border: 1px solid var(--line); width: 100%; max-width: 380px; }
+  .modal.qr { max-width: 420px; }
+  .modal.qr img { width: 100%; display: block; border-radius: 0 0 var(--radius) var(--radius); }
+  .modal .card-b label { display: block; font-size: 12px; color: var(--slate); margin: 8px 0 4px; }
+  .modal .card-b input { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 8px; font: inherit; }
+  .modal .card-b input:focus { outline: 0; border-color: var(--navy); }
+  .modal .card-b input.amt { text-align: right; font-variant-numeric: tabular-nums; }
+  .modal-actions { display: flex; justify-content: flex-end; gap: 6px; padding: 0 14px 14px; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+    background: var(--navy); color: #fff; padding: 9px 16px; border-radius: 6px; font-size: 13px;
+    opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 60; max-width: calc(100% - 32px);
+  }
+  .toast.err { background: var(--red); }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 1024px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  }
+  @media (max-width: 720px) {
+    main { padding: 12px 12px 32px; }
+    header.top { padding: 8px 12px; gap: 10px; }
+    header.top h1 { font-size: 15px; }
+    header.top .sub { display: none; }
+    .logo-chip img { height: 24px; }
+    .cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .stat { padding: 10px 12px; }
+    .stat .value { font-size: 17px; }
+    .stat input.carry-input { font-size: 16px; }
+    .side { display: flex; }
+    .hint { display: none; }
+    table.sheet { min-width: 0; font-size: 12.5px; table-layout: fixed; }
+    table.sheet thead th { padding: 0 2px; font-size: 12px; }
+    table.sheet th:nth-child(1), table.sheet td.date { width: 42px; padding: 0 2px; }
+    table.sheet th:nth-child(2), table.sheet td.dow { width: 26px; padding: 0; }
+    table.sheet th:nth-child(6), table.sheet td.bal { width: 78px; padding: 0 4px; }
+    table.sheet tfoot td { padding: 0 4px; }
+    table.sheet tfoot td.lbl { padding: 0; }
+    .cell input { padding: 0 4px; font-size: 15px; }
+    .cell .memo-btn { top: 1px; right: 1px; transform: none; width: 14px; height: 14px; font-size: 10px; }
+    .cell.has-memo::after { display: none; }
+    .cell.has-memo .memo-btn { background: var(--th-bg); }
+    .account { grid-template-columns: 96px 1fr; }
+    .qr-thumb { width: 96px; }
+  }
+  @media print {
+    header.top, .toolbar, .side, .memo-btn { display: none !important; }
+    .layout { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo-chip"><img src="assets/paldo-logo.png" alt="paldo"></div>
+  <h1>팔도비나 푸토공장 식대 관리</h1>
+  <span class="sub">단위: VND</span>
+</header>
+
+<main>
+  <div class="toolbar">
+    <div class="tabs" id="tabs"></div>
+    <div class="tool-btns">
+      <button class="btn" id="btnNewMonth">+ 새 달 만들기</button>
+      <button class="btn ghost" id="btnImport">엑셀 가져오기</button>
+      <button class="btn ghost" id="btnExport">엑셀 내보내기</button>
+      <button class="btn danger" id="btnDelMonth">이 달 삭제</button>
+      <input type="file" id="fileImport" accept=".xlsx,.xls,.xlsm" hidden>
+    </div>
+  </div>
+
+  <section class="cards">
+    <div class="card stat">
+      <div class="label"><span>이월금</span><span id="carryTag"></span></div>
+      <div id="carryBox"></div>
+      <div class="foot" id="carryFoot"></div>
+    </div>
+    <div class="card stat">
+      <div class="label"><span>회비</span></div>
+      <div class="value num" id="sFee"></div>
+      <div class="foot" id="sFeeFoot"></div>
+    </div>
+    <div class="card stat">
+      <div class="label"><span>지출</span></div>
+      <div class="value num c-red" id="sSpend"></div>
+      <div class="foot" id="sStart"></div>
+    </div>
+    <div class="card stat">
+      <div class="label"><span>현재 잔액</span><span class="tag">월말</span></div>
+      <div class="value num c-green" id="sBal"></div>
+      <div class="foot" id="sPer"></div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <section class="card">
+      <div class="card-h">
+        <h2 id="sheetTitle">일별 지출</h2>
+        <span class="muted hint" style="font-size:12px">칸을 눌러 금액 입력 · ✎ 메모 · Enter 다음 날</span>
+      </div>
+      <div class="table-wrap">
+        <table class="sheet">
+          <thead>
+            <tr><th>날짜</th><th>요일</th><th>점심</th><th>커피</th><th>기타(간식)</th><th>잔액</th></tr>
+          </thead>
+          <tbody id="dayBody"></tbody>
+          <tfoot>
+            <tr>
+              <td class="lbl" colspan="2">합계</td>
+              <td class="num c-red" id="tLunch"></td>
+              <td class="num c-red" id="tCoffee"></td>
+              <td class="num c-red" id="tEtc"></td>
+              <td class="num c-green" id="tBal"></td>
+            </tr>
+            <tr>
+              <td class="lbl" colspan="2">총 지출</td>
+              <td class="num c-red" colspan="3" id="tTotal"></td>
+              <td class="num muted" style="font-weight:500;font-size:12px">월말 잔액 ↑</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="card">
+        <div class="card-h">
+          <h2>회비 납부 명단</h2>
+          <span id="unpaidSummary"></span>
+        </div>
+        <div class="card-b">
+          <table class="members"><tbody id="memberBody"></tbody></table>
+          <div class="members-foot">
+            <span class="muted">납부 체크 = 이번 달 입금 확인</span>
+            <span class="num"><b id="feeSum"></b></span>
+          </div>
+          <div class="add-row">
+            <input type="text" id="newName" placeholder="이름">
+            <input type="text" id="newAmt" class="amt" placeholder="금액" inputmode="numeric">
+            <button class="btn sm" id="btnAddMember">추가</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>회비 입금 계좌</h2><span class="tag">VietQR</span></div>
+        <div class="card-b account">
+          <div>
+            <button class="qr-thumb" id="qrThumb" title="크게 보기"><img src="assets/vietqr.png" alt="VietQR 코드"></button>
+            <div class="qr-hint">눌러서 크게 보기</div>
+          </div>
+          <div>
+            <div class="acc-row"><div class="k">계좌명</div><div class="v">YOO TAEYEON</div></div>
+            <div class="acc-row">
+              <div class="k">계좌번호</div>
+              <div class="acc-no"><span class="v" id="accNo">700-036-006516</span><button class="btn ghost sm" id="btnCopy">복사</button></div>
+            </div>
+            <div class="acc-row"><div class="k">은행명</div><div class="v">신한베트남은행<br><span class="muted" style="font-weight:500;font-size:12px">Shinhan Bank Vietnam</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>참고 지표</h2></div>
+        <div class="card-b" id="metrics"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-h">
+          <h2>메모 (임시 계산)</h2>
+          <button class="btn ghost sm" id="btnAddMemo">+ 줄 추가</button>
+        </div>
+        <div class="card-b">
+          <table class="memo-list"><tbody id="memoBody"></tbody></table>
+          <div class="kv" style="margin-top:6px"><span class="k">메모 합계</span><span class="num" id="memoSum"></span></div>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<!-- 지출 메모 모달 -->
+<div class="modal-bg" id="memoModal">
+  <div class="modal">
+    <div class="card-h"><h2 id="memoTitle">메모</h2></div>
+    <div class="card-b">
+      <label for="mAmt">금액 (VND)</label>
+      <input type="text" id="mAmt" class="amt" inputmode="numeric">
+      <label for="mText">메모 (가게명 / 내용)</label>
+      <input type="text" id="mText" placeholder="예) 퍼보 식당, 하이랜드 커피">
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" data-close>취소</button>
+      <button class="btn" id="mSave">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- QR 확대 모달 -->
+<div class="modal-bg" id="qrModal">
+  <div class="modal qr">
+    <div class="card-h"><h2>회비 입금 QR</h2><button class="btn ghost sm" data-close>닫기</button></div>
+    <img src="assets/vietqr-full.png" alt="VietQR 신한베트남은행 YOO TAEYEON 700-036-006516">
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
