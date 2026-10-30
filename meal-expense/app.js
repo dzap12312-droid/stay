@@ -505,6 +505,105 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
   }
 
+  // ---------- 단톡방 공유용 캡처 화면 (읽기 전용) ----------
+  function renderShareCard() {
+    const key = state.current;
+    const mo = state.months[key];
+    const { y, m } = ym(key);
+    const carry = carryOf(key);
+    const fee = feeOf(key);
+    const t = totalsOf(key);
+    const img = window.SHARE_IMG || { logo: 'assets/paldo-logo.png', qr: 'assets/vietqr.png' };
+    const vnd = (n, cls) => `<span class="num ${cls || ''}">${fmt(n)}<span class="unit">VND</span></span>`;
+    const amt = (n) => n ? `<td class="num c-red">${fmt(n)}</td>` : '<td class="dash">-</td>';
+
+    const list = roster(key).filter((r) => !r.gone || mo.paid[r.id]);
+    const paidCnt = list.filter((r) => mo.paid[r.id]).length;
+    const members = list.map((r) => {
+      const p = mo.paid[r.id];
+      return `<tr><td>${esc(r.name)}</td><td class="num">${fmt(p ? p.amount : r.amount)}</td>
+        <td class="b">${p ? '<span class="badge paid">납부</span>' : '<span class="badge unpaid">미납</span>'}</td></tr>`;
+    }).join('');
+
+    let bal = carry + fee;
+    let rows = '';
+    for (let d = 1; d <= daysIn(key); d++) {
+      const r = dayRec(mo, d);
+      bal = bal - (r.lunch || 0) - (r.coffee || 0) - (r.etc || 0);
+      if (!(r.lunch > 0 || r.coffee > 0 || r.etc > 0)) continue;
+      rows += `<tr><td class="d">${m}/${d}(${DOW[new Date(y, m - 1, d).getDay()]})</td>
+        ${amt(r.lunch)}${amt(r.coffee)}${amt(r.etc)}<td class="num c-green">${fmt(bal)}</td></tr>`;
+    }
+    const usage = rows
+      ? `<table class="sc-table">
+          <thead><tr><th>날짜</th><th>점심</th><th>커피</th><th>기타</th><th>잔액</th></tr></thead>
+          <tbody>${rows}</tbody>
+          <tfoot><tr><td class="d">합계</td>
+            <td class="num c-red">${fmt(t.lunch)}</td><td class="num c-red">${fmt(t.coffee)}</td>
+            <td class="num c-red">${fmt(t.etc)}</td><td class="num c-green">${fmt(bal)}</td></tr></tfoot>
+        </table>`
+      : '<div class="sc-empty">이번 달 사용 내역이 아직 없습니다</div>';
+
+    const now = new Date();
+    $('shareCard').innerHTML = `
+      <img class="sc-logo" src="${img.logo}" alt="paldo">
+      <h2 class="sc-title">팔도비나 푸토공장 식대 · ${sheetName(key)}</h2>
+      <div class="sc-grid">
+        <div class="sc-box"><div class="k">이월금<span class="unit">VND</span></div><div class="v num">${fmt(carry)}</div></div>
+        <div class="sc-box"><div class="k">회비<span class="unit">VND</span></div><div class="v num">${fmt(fee)}</div></div>
+        <div class="sc-box"><div class="k">지출<span class="unit">VND</span></div><div class="v num c-red">${fmt(t.total)}</div></div>
+      </div>
+      <div class="sc-bal"><span class="k">현재 잔액</span><span class="v">${vnd(bal)}</span></div>
+
+      <div class="sc-sec">
+        <h3 class="sc-h">회비 납부 현황 <small>${paidCnt}/${list.length}명 납부</small></h3>
+        <table class="sc-members"><tbody>${members}</tbody></table>
+      </div>
+
+      <div class="sc-sec">
+        <h3 class="sc-h">사용 내역 <small>총 ${fmt(t.total)}</small></h3>
+        ${usage}
+      </div>
+
+      <div class="sc-sec">
+        <h3 class="sc-h">회비 입금 계좌</h3>
+        <img class="sc-qr" src="${img.qr}" alt="VietQR">
+        <div class="sc-acc">
+          <div class="holder">YOO TAEYEON</div>
+          <div class="no">${ACCOUNT_NO}</div>
+          <div class="bank">신한베트남은행 (Shinhan Bank Vietnam)</div>
+        </div>
+      </div>
+
+      <div class="sc-foot">기준일: ${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}</div>`;
+  }
+
+  $('btnShare').addEventListener('click', () => {
+    if (!state.current) { toast('표시할 달이 없습니다', true); return; }
+    renderShareCard();
+    openModal('shareModal');
+    $('shareModal').scrollTop = 0;
+  });
+
+  $('btnShareSave').addEventListener('click', () => {
+    if (!window.html2canvas) { toast('이미지 저장 기능을 불러오지 못했습니다 — Win+Shift+S로 캡처해 주세요', true); return; }
+    const btn = $('btnShareSave');
+    btn.disabled = true;
+    window.html2canvas($('shareCard'), { scale: 2, backgroundColor: '#ffffff', logging: false })
+      .then((canvas) => new Promise((resolve, reject) => canvas.toBlob((blob) => (blob ? resolve(blob) : reject()), 'image/png')))
+      .then((blob) => {
+        const now = new Date();
+        const a = document.createElement('a');
+        a.download = `paldo_meal_${state.current}_${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}.png`; // 한글 파일명은 일부 브라우저에서 무시됨
+        a.href = URL.createObjectURL(blob);
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        toast('이미지로 저장했습니다');
+      })
+      .catch(() => toast('이미지 저장 실패 — Win+Shift+S로 캡처해 주세요', true))
+      .then(() => { btn.disabled = false; });
+  });
+
   // ---------- 엑셀 내보내기 ----------
   // 시트 구조: B3 이월금 / B4 회비 / B5 시작 잔액, 7행 헤더(날짜|요일|점심|커피|기타|잔액|비고), 8행부터 1일~말일
   const HEAD_ROW = 7;
