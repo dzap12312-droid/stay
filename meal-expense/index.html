@@ -6,6 +6,11 @@
 <title>팔도비나 푸토공장 식대 관리</title>
 <link rel="icon" href="assets/paldo-logo.png">
 <style>
+  @font-face { font-family: "Pretendard"; font-weight: 400; font-display: swap; src: url("assets/fonts/Pretendard-Regular.subset.woff2") format("woff2"); }
+  @font-face { font-family: "Pretendard"; font-weight: 500; font-display: swap; src: url("assets/fonts/Pretendard-Medium.subset.woff2") format("woff2"); }
+  @font-face { font-family: "Pretendard"; font-weight: 600; font-display: swap; src: url("assets/fonts/Pretendard-SemiBold.subset.woff2") format("woff2"); }
+  @font-face { font-family: "Pretendard"; font-weight: 700; font-display: swap; src: url("assets/fonts/Pretendard-Bold.subset.woff2") format("woff2"); }
+  @font-face { font-family: "Pretendard"; font-weight: 800; font-display: swap; src: url("assets/fonts/Pretendard-ExtraBold.subset.woff2") format("woff2"); }
   :root {
     --navy: #1F3A5F;
     --navy-hover: #172C48;
@@ -203,68 +208,101 @@
   .toast.err { background: var(--red); }
   .toast.show { opacity: 1; }
 
-  /* 단톡방 공유용 캡처 화면 */
+  /* 단톡방 공유용 캡처 화면 — A4 가로(297×210mm = 1123×794px) */
   .share-btn {
     border: 0; background: transparent; color: #8A96A6; font-size: 12px;
     padding: 4px 6px; border-radius: 4px; align-self: center;
   }
   .share-btn:hover { color: var(--navy); background: var(--th-bg); }
-  .modal-bg.share-bg { align-items: flex-start; overflow-y: auto; padding: 56px 16px 40px; }
+  .modal-bg.share-bg { display: none; overflow: auto; padding: 56px 16px 40px; }
+  .modal-bg.share-bg.open { display: block; }
   .share-close {
-    position: fixed; top: 12px; right: 16px; width: 36px; height: 36px; border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, .5); background: transparent; color: #fff; font-size: 22px; line-height: 1;
+    position: fixed; top: 12px; right: 16px; width: 36px; height: 36px; border-radius: 6px; z-index: 2;
+    border: 1px solid rgba(255, 255, 255, .5); background: rgba(17, 24, 39, .35); color: #fff; font-size: 22px; line-height: 1;
   }
   .share-close:hover { background: rgba(255, 255, 255, .12); }
-  .share-wrap { width: 100%; max-width: 460px; margin: 0 auto; }
-  .share-actions { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; color: #E5E9EF; font-size: 12px; }
-  .share-actions .btn { background: #fff; color: var(--navy); border-color: #fff; }
+  .share-wrap { width: 1123px; margin: 0 auto; }
+  .share-actions { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; color: #E5E9EF; font-size: 13px; }
+  .share-actions .btns { display: flex; gap: 6px; }
+  .share-actions .btn { background: #fff; color: var(--navy); border-color: #fff; font-weight: 600; }
   .share-card {
-    background: #fff; border: 1px solid #C9D1DB; border-radius: 8px; padding: 24px 22px 18px;
-    color: var(--text); font-size: 16px; line-height: 1.4;
+    width: 1123px; height: 794px; background: #fff; border: 1px solid #C9D1DB; border-radius: 8px; overflow: hidden;
+    display: flex; flex-direction: column; color: var(--text); font-size: 16px; line-height: 1.35;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
-  .share-card .sc-logo { height: 34px; display: block; margin-bottom: 8px; }
-  .share-card .sc-title { font-size: 28px; font-weight: 800; color: var(--navy); margin: 0 0 18px; letter-spacing: -0.5px; line-height: 1.25; word-break: keep-all; }
-  .share-card .sc-sec { margin-top: 22px; }
-  .share-card .sc-h { font-size: 17px; font-weight: 700; color: var(--navy); margin: 0 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--navy); display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  .share-card .sc-h small { font-size: 14px; font-weight: 600; color: var(--slate); }
-  .share-card .unit { font-size: 12px; font-weight: 500; color: var(--slate); margin-left: 2px; }
-  .sc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-  .sc-box { border: 1px solid var(--line); border-radius: 6px; padding: 9px 10px; }
-  .sc-box .k { font-size: 14px; color: var(--slate); display: flex; justify-content: space-between; align-items: baseline; }
-  .sc-box .v { font-size: 18px; font-weight: 700; margin-top: 2px; }
-  .sc-bal { margin-top: 8px; border: 2px solid var(--green); border-radius: 6px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-  .sc-bal .k { font-size: 17px; font-weight: 700; color: var(--green); }
-  .sc-bal .v { font-size: 32px; font-weight: 800; color: var(--green); }
+  .share-card .num { font-variant-numeric: normal; } /* html2canvas가 tabular 숫자 폭을 잘못 계산해 공백이 생김 */
+  .share-card .unit { font-size: 12px; font-weight: 600; opacity: .75; margin-left: 3px; }
+  .sc-band { background: var(--navy); color: #fff; display: flex; align-items: center; gap: 18px; padding: 14px 30px; border-bottom: 5px solid var(--green); }
+  .sc-band .logo { background: #fff; border-radius: 6px; padding: 5px 12px; display: flex; }
+  .sc-band .logo img { height: 34px; display: block; }
+  .sc-band h2 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.6px; }
+  .sc-band h2 b { color: #8FD3B6; font-weight: 800; }
+  .sc-band .asof { margin-left: auto; text-align: right; font-size: 13px; color: #C9D4E1; line-height: 1.3; }
+  .sc-band .asof strong { display: block; color: #fff; font-size: 17px; font-weight: 700; }
+  .sc-body { flex: 1; min-height: 0; padding: 18px 30px 20px; display: flex; flex-direction: column; gap: 16px; }
+  .sc-tiles { display: grid; grid-template-columns: 1fr 1fr 1fr 1.35fr; gap: 12px; }
+  .sc-tile { border-radius: 8px; padding: 11px 16px; border: 2px solid; display: flex; flex-direction: column; justify-content: center; }
+  .sc-tile .k { font-size: 14px; font-weight: 700; }
+  .sc-tile .v { font-size: 25px; font-weight: 800; letter-spacing: -0.4px; margin-top: 2px; }
+  .sc-tile.carry { background: #EEF2F6; border-color: #C3CFDD; color: var(--navy); }
+  .sc-tile.fee { background: #E6EDF6; border-color: var(--navy); color: var(--navy); }
+  .sc-tile.spend { background: #FDECEC; border-color: var(--red); color: var(--red); }
+  .sc-tile.bal { background: var(--green); border-color: var(--green); color: #fff; }
+  .sc-tile.bal .v { font-size: 34px; }
+  .sc-main { flex: 1; min-height: 0; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px; }
+  .sc-left, .sc-right { display: flex; flex-direction: column; min-height: 0; }
+  .sc-left { gap: 16px; }
+  .sc-h { margin: 0 0 8px; font-size: 17px; font-weight: 800; color: var(--navy); border-left: 5px solid var(--navy); padding-left: 9px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; line-height: 1.2; }
+  .sc-h small { font-size: 13px; font-weight: 700; color: var(--slate); }
+  .sc-h small.alert { color: var(--red); }
   .sc-members { width: 100%; border-collapse: collapse; }
-  .sc-members td { padding: 8px 2px; border-bottom: 1px solid var(--line); font-size: 17px; }
-  .sc-members tr:last-child td { border-bottom: 0; }
-  .sc-members td.b { width: 64px; text-align: right; }
-  .share-card .badge { font-size: 14px; padding: 2px 8px; }
+  .sc-members td { padding: 6px 4px; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .sc-members td.n { font-weight: 600; }
+  .sc-members td.b { width: 56px; text-align: right; }
+  .sc-members tr.unpaid td { background: #FDF3F2; }
+  .share-card .badge { font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+  .share-card .badge.paid { background: var(--green); color: #fff; }
   .share-card .badge.unpaid { background: var(--red); color: #fff; }
-  .sc-table { width: 100%; border-collapse: collapse; font-size: 16px; }
-  .sc-table th, .sc-table td { border: 1px solid var(--grid); padding: 6px 5px; }
-  .sc-table th { background: var(--th-bg); color: var(--navy); font-weight: 700; font-size: 15px; text-align: center; }
-  .sc-table td.d { text-align: center; white-space: nowrap; }
+  .sc-account { border: 2px solid var(--navy); border-radius: 8px; padding: 10px 12px 12px; text-align: center; }
+  .sc-account img { width: 228px; display: block; margin: 0 auto 6px; }
+  .sc-account .holder { font-size: 15px; font-weight: 700; }
+  .sc-account .no { font-size: 25px; font-weight: 800; color: var(--navy); white-space: nowrap; letter-spacing: -0.2px; }
+  .sc-account .bank { font-size: 13px; color: var(--slate); font-weight: 500; }
+  .sc-tables { flex: 1; min-height: 0; display: flex; gap: 14px; align-items: flex-start; }
+  .sc-table { flex: 1; min-width: 0; border-collapse: collapse; font-size: 15px; }
+  .sc-tables.two .sc-table { font-size: 13.5px; table-layout: fixed; }
+  .sc-tables.two .sc-table th { font-size: 13px; padding: 0 3px; }
+  .sc-tables.two .sc-table td { padding: 0 5px; }
+  .sc-tables.two .sc-table th:nth-child(1) { width: 22%; }
+  .sc-tables.two .sc-table th:nth-child(2) { width: 19%; }
+  .sc-tables.two .sc-table th:nth-child(3), .sc-tables.two .sc-table th:nth-child(4) { width: 16.5%; }
+  .sc-tables.two .sc-table th:nth-child(5) { width: 26%; }
+  .sc-table th { background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; height: 30px; padding: 0 6px; border: 1px solid var(--navy); }
+  .sc-table td { border: 1px solid var(--grid); height: 27px; padding: 0 8px; }
+  .sc-table tbody tr:nth-child(even) td { background: #F5F7FA; }
+  .sc-table td.d { text-align: center; white-space: nowrap; font-weight: 600; }
+  .sc-table td.d.sat { color: var(--navy); }
+  .sc-table td.d.sun { color: var(--red); }
   .sc-table td.dash { color: #B8C0CC; text-align: center; }
-  .sc-table tfoot td { background: var(--th-bg); font-weight: 700; }
-  .sc-empty { text-align: center; color: var(--slate); padding: 14px 0; border: 1px dashed var(--line); border-radius: 6px; }
-  .sc-qr { display: block; width: 260px; max-width: 100%; margin: 4px auto 10px; }
-  .sc-acc { text-align: center; }
-  .sc-acc .holder { font-size: 18px; font-weight: 700; }
-  .sc-acc .no { font-size: 26px; font-weight: 800; color: var(--navy); margin: 2px 0; white-space: nowrap; }
-  .sc-acc .bank { font-size: 16px; color: var(--slate); }
-  .sc-foot { margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--slate); text-align: right; }
-  @media (max-width: 480px) {
-    .share-card { padding: 18px 14px 14px; }
-    .sc-box .v { font-size: 16px; }
-    .sc-bal .v { font-size: 26px; }
-    .sc-table { font-size: 14px; table-layout: fixed; }
-    .sc-table th { font-size: 13px; }
-    .sc-table th, .sc-table td { padding: 5px 2px; }
-    .sc-table th:nth-child(1) { width: 20%; }
-    .sc-table tfoot td { font-size: 13px; }
-    .sc-table th:nth-child(5) { width: 25%; }
-    .sc-members td { font-size: 16px; }
+  .sc-table td.c-red { font-weight: 600; }
+  .sc-table td.c-green { font-weight: 700; }
+  .sc-empty { flex: 1; display: flex; align-items: center; justify-content: center; color: var(--slate); border: 2px dashed var(--line); border-radius: 8px; font-size: 17px; }
+  .sc-total { margin-top: 12px; background: var(--navy); color: #fff; border-radius: 8px; display: grid; grid-template-columns: repeat(5, 1fr); }
+  .sc-total > div { padding: 8px 14px; border-left: 1px solid rgba(255, 255, 255, .18); }
+  .sc-total > div:first-child { border-left: 0; }
+  .sc-total .k { font-size: 12px; color: #C9D4E1; font-weight: 600; }
+  .sc-total .v { font-size: 19px; font-weight: 800; text-align: right; }
+  .sc-total .v.red { color: #FFB4AB; }
+  .sc-total .v.green { color: #8FD3B6; }
+
+  @page { size: A4 landscape; margin: 0; }
+  @media print {
+    body.share-open > *:not(#shareModal) { display: none !important; }
+    body.share-open { background: #fff; }
+    body.share-open .share-bg { position: static; display: block; padding: 0; background: none; overflow: visible; }
+    body.share-open .share-actions, body.share-open .share-close { display: none !important; }
+    body.share-open .share-wrap { width: auto; }
+    body.share-open .share-card { width: 297mm; height: 209mm; border: 0; border-radius: 0; }
   }
 
   @media (max-width: 1024px) {
@@ -464,8 +502,11 @@
   <button class="share-close" data-close title="닫기">×</button>
   <div class="share-wrap">
     <div class="share-actions">
-      <span>아래 카드만 캡처하세요 (Win+Shift+S)</span>
-      <button class="btn sm" id="btnShareSave">이미지로 저장</button>
+      <span>A4 가로 · 아래 카드만 캡처하세요 (Win+Shift+S)</span>
+      <span class="btns">
+        <button class="btn sm" id="btnSharePrint">인쇄 / PDF</button>
+        <button class="btn sm" id="btnShareSave">이미지로 저장</button>
+      </span>
     </div>
     <div class="share-card" id="shareCard"></div>
   </div>
