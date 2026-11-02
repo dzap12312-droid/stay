@@ -509,6 +509,13 @@
   }
 
   // ---------- 단톡방 공유용 캡처 화면 (읽기 전용) ----------
+  const AVATAR_COLORS = ['#6366F1', '#F59E0B', '#06B6D4', '#EC4899'];
+  const ICON = {
+    carry: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg>',
+    fee: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
+    spend: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>'
+  };
+
   function renderShareCard() {
     const key = state.current;
     const mo = state.months[key];
@@ -516,78 +523,106 @@
     const carry = carryOf(key);
     const fee = feeOf(key);
     const t = totalsOf(key);
-    const img = window.SHARE_IMG || { logo: 'assets/paldo-logo.png', qr: 'assets/vietqr.png' };
+    const img = window.SHARE_IMG || {};
     const unit = '<span class="unit">VND</span>';
-    const amt = (n) => (n ? `<td class="num c-red">${fmt(n)}</td>` : '<td class="dash">-</td>');
 
     const list = roster(key).filter((r) => !r.gone || mo.paid[r.id]);
     const unpaidCnt = list.filter((r) => !mo.paid[r.id]).length;
-    const members = list.map((r) => {
+    const members = list.map((r, i) => {
       const p = mo.paid[r.id];
-      return `<tr class="${p ? '' : 'unpaid'}"><td class="n">${esc(r.name)}</td><td class="num">${fmt(p ? p.amount : r.amount)}</td>
-        <td class="b">${p ? '<span class="badge paid">납부</span>' : '<span class="badge unpaid">미납</span>'}</td></tr>`;
+      return `<div class="sc-mrow">
+        <span class="sc-avatar" style="background:${AVATAR_COLORS[i % AVATAR_COLORS.length]}">${esc((r.name || '?').trim().charAt(0))}</span>
+        <span class="n">${esc(r.name)}</span>
+        <span class="a num">${fmt(p ? p.amount : r.amount)}</span>
+        <span class="sc-pill ${p ? 'paid' : 'unpaid'}">${p ? '납부' : '미납'}</span>
+      </div>`;
     }).join('');
 
-    // 지출 있는 날만, 16줄 넘으면 두 표로 나눠 A4 한 장에 맞춤
+    // 지출 있는 날만 (잔액 계산은 본 화면과 동일: 시작 잔액에서 날마다 차감)
     let bal = carry + fee;
     const rows = [];
     for (let d = 1; d <= daysIn(key); d++) {
       const r = dayRec(mo, d);
-      bal = bal - (r.lunch || 0) - (r.coffee || 0) - (r.etc || 0);
+      const spent = (r.lunch || 0) + (r.coffee || 0) + (r.etc || 0);
+      bal -= spent;
       if (!(r.lunch > 0 || r.coffee > 0 || r.etc > 0)) continue;
-      const w = new Date(y, m - 1, d).getDay();
-      rows.push(`<tr><td class="d${w === 6 ? ' sat' : w === 0 ? ' sun' : ''}">${m}/${d} (${DOW[w]})</td>
-        ${amt(r.lunch)}${amt(r.coffee)}${amt(r.etc)}<td class="num c-green">${fmt(bal)}</td></tr>`);
+      const items = COLS.filter((c) => r[c] > 0).map((c) => (c === 'etc' ? '기타' : COL_LABEL[c])).join(' · ');
+      rows.push(`<div class="sc-row" title="${m}/${d} ${items} −${fmt(spent)} · 잔액 ${fmt(bal)}">
+        <div class="sc-date"><span class="d">${d}</span><span class="w">${DOW[new Date(y, m - 1, d).getDay()]}</span></div>
+        <div class="mid"><div class="it">${items}</div><div class="sub">잔액 <span class="num">${fmt(bal)}</span></div></div>
+        <div class="amt num">−${fmt(spent)}</div>
+      </div>`);
     }
-    const head = '<thead><tr><th>날짜</th><th>점심</th><th>커피</th><th>기타</th><th>잔액</th></tr></thead>';
-    const chunks = rows.length > 16 ? [rows.slice(0, Math.ceil(rows.length / 2)), rows.slice(Math.ceil(rows.length / 2))] : [rows];
-    const tables = rows.length
-      ? `<div class="sc-tables${chunks.length > 1 ? ' two' : ''}">${chunks.map((c) => `<table class="sc-table">${head}<tbody>${c.join('')}</tbody></table>`).join('')}</div>`
-      : '<div class="sc-empty">이번 달 사용 내역이 아직 없습니다</div>';
 
     const now = new Date();
-    $('shareCard').innerHTML = `
-      <div class="sc-band">
-        <div class="logo"><img src="${img.logo}" alt="paldo"></div>
-        <h2>팔도비나 푸토공장 식대 · <b>${sheetName(key)}</b></h2>
-        <div class="asof">기준일<strong>${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}</strong></div>
-      </div>
-      <div class="sc-body">
-        <div class="sc-tiles">
-          <div class="sc-tile carry"><div class="k">이월금</div><div class="v num">${fmt(carry)}${unit}</div></div>
-          <div class="sc-tile fee"><div class="k">회비</div><div class="v num">${fmt(fee)}${unit}</div></div>
-          <div class="sc-tile spend"><div class="k">지출</div><div class="v num">${fmt(t.total)}${unit}</div></div>
-          <div class="sc-tile bal"><div class="k">현재 잔액</div><div class="v num">${fmt(bal)}${unit}</div></div>
+    const card = $('shareCard');
+    card.classList.toggle('stack', window.innerWidth <= 480);
+    card.innerHTML = `
+      <div class="sc-hero">
+        <span class="circle c1"></span><span class="circle c2"></span><span class="circle c3"></span>
+        <div class="sc-logo"><img src="${img.logo || 'assets/paldo-logo.png'}" alt="paldo"></div>
+        <div class="sc-titles">
+          <div class="label">PALDO VINA · PHU THO FACTORY</div>
+          <h2>팔도비나 푸토공장 식대 <span class="sc-chip-month">${sheetName(key)}</span></h2>
         </div>
-        <div class="sc-main">
-          <div class="sc-left">
-            <section>
-              <h3 class="sc-h">회비 납부 현황 ${unpaidCnt ? `<small class="alert">미납 ${unpaidCnt}명</small>` : '<small>전원 납부</small>'}</h3>
-              <table class="sc-members"><tbody>${members}</tbody></table>
-            </section>
-            <section>
-              <h3 class="sc-h">회비 입금 계좌</h3>
-              <div class="sc-account">
-                <img src="${img.qr}" alt="VietQR">
-                <div class="holder">YOO TAEYEON</div>
-                <div class="no">${ACCOUNT_NO}</div>
-                <div class="bank">신한베트남은행 (Shinhan Bank Vietnam)</div>
-              </div>
-            </section>
+        <div class="sc-asof">기준일 ${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}</div>
+      </div>
+      <div class="sc-grid">
+        <div class="sc-col">
+          <div class="sc-bal">
+            <span class="circle b1"></span><span class="circle b2"></span>
+            <div class="k"><span>현재 잔액</span><span class="unit">VND</span></div>
+            <div class="v num">${fmt(bal)}</div>
+            <div class="s">${sheetName(key)} 월말 기준</div>
           </div>
-          <div class="sc-right">
-            <h3 class="sc-h">사용 내역 <small>지출 ${rows.length}일</small></h3>
-            ${tables}
-            <div class="sc-total">
-              <div><div class="k">점심 합계</div><div class="v num">${fmt(t.lunch)}</div></div>
-              <div><div class="k">커피 합계</div><div class="v num">${fmt(t.coffee)}</div></div>
-              <div><div class="k">기타 합계</div><div class="v num">${fmt(t.etc)}</div></div>
-              <div><div class="k">총 지출</div><div class="v num red">${fmt(t.total)}</div></div>
-              <div><div class="k">월말 잔액</div><div class="v num green">${fmt(bal)}</div></div>
+          <div class="sc-card sc-mini carry"><span class="sc-ico carry">${ICON.carry}</span><div class="t"><div class="k">이월금</div><div class="v num">${fmt(carry)}${unit}</div></div></div>
+          <div class="sc-card sc-mini fee"><span class="sc-ico fee">${ICON.fee}</span><div class="t"><div class="k">회비</div><div class="v num">${fmt(fee)}${unit}</div></div></div>
+          <div class="sc-card sc-mini spend"><span class="sc-ico spend">${ICON.spend}</span><div class="t"><div class="k">지출</div><div class="v num">${fmt(t.total)}${unit}</div></div></div>
+        </div>
+        <div class="sc-col">
+          <div class="sc-card sc-members">
+            <h3 class="sc-h">회비 납부 현황 ${unpaidCnt ? `<span class="sc-tag red">미납 ${unpaidCnt}명</span>` : '<span class="sc-tag green">전원 납부</span>'}</h3>
+            ${members}
+          </div>
+          <div class="sc-card sc-usage">
+            <h3 class="sc-h">사용 내역 <span class="sc-tag sky">지출 ${rows.length}일</span></h3>
+            ${rows.length ? `<div class="sc-list" id="scList">${rows.join('')}</div>` : '<div class="sc-empty">이번 달 사용 내역이 아직 없습니다</div>'}
+            <div class="sc-tiles">
+              <div class="sc-tile lunch"><div class="k">점심 합계</div><div class="v num">${fmt(t.lunch)}</div></div>
+              <div class="sc-tile coffee"><div class="k">커피 합계</div><div class="v num">${fmt(t.coffee)}</div></div>
+              <div class="sc-tile etc"><div class="k">기타 합계</div><div class="v num">${fmt(t.etc)}</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="sc-col">
+          <div class="sc-card sc-account">
+            <h3 class="sc-h">회비 입금 계좌</h3>
+            <div class="acc-body">
+            <img class="sc-qr-head" src="${img.qrLogos || ''}" alt="VietQR · Shinhan Bank">
+            <div class="sc-qr-box"><img src="${img.qrCode || 'assets/vietqr.png'}" alt="VietQR 코드"></div>
+            <img class="sc-qr-foot" src="${img.napas || ''}" alt="napas 247">
+            <div class="holder">YOO TAEYEON</div>
+            <div class="no">${ACCOUNT_NO}</div>
+            <div class="bank">신한베트남은행 (Shinhan Bank Vietnam)</div>
             </div>
           </div>
         </div>
       </div>`;
+  }
+
+  // 사용 내역이 A4 한 장에 들어가도록 열 수·밀도를 단계적으로 조정 (화면에 보인 뒤 측정)
+  const LIST_LEVELS = [{ cls: '', cols: 1 }, { cls: '', cols: 2 }, { cls: 'l2', cols: 2 }, { cls: 'l3', cols: 2 }, { cls: 'l4', cols: 3 }, { cls: 'l5', cols: 3 }];
+  function fitShareList() {
+    const listEl = $('scList');
+    if (!listEl) return;
+    const n = listEl.children.length;
+    const stack = $('shareCard').classList.contains('stack');
+    for (let i = 0; i < LIST_LEVELS.length; i++) {
+      const lv = stack ? LIST_LEVELS[0] : LIST_LEVELS[i];
+      listEl.className = 'sc-list' + (lv.cls ? ' ' + lv.cls : '');
+      listEl.style.gridTemplateRows = `repeat(${Math.ceil(n / lv.cols)}, auto)`;
+      if (stack || listEl.scrollHeight <= listEl.clientHeight + 1) return;
+    }
   }
 
   $('btnShare').addEventListener('click', () => {
@@ -596,6 +631,8 @@
     document.body.classList.add('share-open');
     openModal('shareModal');
     $('shareModal').scrollTop = 0;
+    fitShareList();
+    if (document.fonts) document.fonts.ready.then(fitShareList);
   });
 
   $('btnSharePrint').addEventListener('click', () => window.print());
@@ -605,7 +642,10 @@
     const btn = $('btnShareSave');
     btn.disabled = true;
     (document.fonts ? document.fonts.ready : Promise.resolve())
-      .then(() => window.html2canvas($('shareCard'), { scale: 2, backgroundColor: '#ffffff', logging: false }))
+      .then(() => window.html2canvas($('shareCard'), {
+        scale: 2, backgroundColor: '#F3F5FB', logging: false,
+        onclone: (doc) => doc.getElementById('shareCard').classList.add('capturing')
+      }))
       .then((canvas) => new Promise((resolve, reject) => canvas.toBlob((blob) => (blob ? resolve(blob) : reject()), 'image/png')))
       .then((blob) => {
         const now = new Date();
