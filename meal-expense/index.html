@@ -134,6 +134,14 @@
   }
   .cell .memo-btn:hover { color: var(--navy); background: var(--th-bg); }
   .cell.has-memo .memo-btn { color: var(--navy); }
+  table.sheet th.memo-col { width: 170px; }
+  table.sheet td.memo-col input {
+    width: 100%; height: 31px; border: 0; background: transparent; padding: 0 8px; font: inherit; font-size: 13px; color: var(--text);
+  }
+  table.sheet td.memo-col input::placeholder { color: #B8C0CC; }
+  table.sheet td.memo-col input:focus { outline: 2px solid var(--navy); outline-offset: -2px; background: #fff; }
+  table.sheet td.memo-col input.need { background: var(--red-bg); }
+  table.sheet td.memo-col input.need::placeholder { color: var(--red); }
   .cell.has-memo::after {
     content: ""; position: absolute; top: 0; right: 0;
     border-top: 7px solid var(--navy); border-left: 7px solid transparent;
@@ -411,7 +419,8 @@
     table.sheet thead th { padding: 0 2px; font-size: 12px; }
     table.sheet th:nth-child(1), table.sheet td.date { width: 42px; padding: 0 2px; }
     table.sheet th:nth-child(2), table.sheet td.dow { width: 26px; padding: 0; }
-    table.sheet th:nth-child(6), table.sheet td.bal { width: 78px; padding: 0 4px; }
+    table.sheet th:nth-child(7), table.sheet td.bal { width: 78px; padding: 0 4px; }
+    table.sheet .memo-col { display: none; } /* 모바일: 기타 입력 후 메모 창이 자동으로 열림 */
     table.sheet tfoot td { padding: 0 4px; }
     table.sheet tfoot td.lbl { padding: 0; }
     .cell input { padding: 0 4px; font-size: 15px; }
@@ -480,7 +489,7 @@
       <div class="table-wrap">
         <table class="sheet">
           <thead>
-            <tr><th>날짜</th><th>요일</th><th>점심</th><th>커피</th><th>기타(간식)</th><th>잔액</th></tr>
+            <tr><th>날짜</th><th>요일</th><th>점심</th><th>커피</th><th>기타(간식)</th><th class="memo-col">기타 내용</th><th>잔액</th></tr>
           </thead>
           <tbody id="dayBody"></tbody>
           <tfoot>
@@ -489,11 +498,13 @@
               <td class="num c-red" id="tLunch"></td>
               <td class="num c-red" id="tCoffee"></td>
               <td class="num c-red" id="tEtc"></td>
+              <td class="memo-col"></td>
               <td class="num c-green" id="tBal"></td>
             </tr>
             <tr>
               <td class="lbl" colspan="2">총 지출</td>
               <td class="num c-red" colspan="3" id="tTotal"></td>
+              <td class="memo-col"></td>
               <td class="num muted" style="font-weight:500;font-size:12px">월말 잔액 ↑</td>
             </tr>
           </tfoot>

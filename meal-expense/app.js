@@ -146,6 +146,8 @@
             <button class="memo-btn" data-memo="${c}" tabindex="-1" title="메모${memo ? ': ' + esc(memo) : ''}">✎</button>
           </div></td>`;
         }).join('')}
+        <td class="memo-col"><input type="text" data-memo-col="etc" maxlength="60" autocomplete="off" value="${esc((rec.memo && rec.memo.etc) || '')}"
+          class="${rec.etc && !(rec.memo && rec.memo.etc) ? 'need' : ''}" placeholder="${rec.etc ? '무엇을 샀는지 입력' : ''}" aria-label="${m}/${d} 기타 내용"></td>
         <td class="num bal c-green" data-bal="${d}"></td>
       </tr>`;
     }
@@ -290,31 +292,60 @@
   const dayBody = $('dayBody');
   dayBody.addEventListener('input', (e) => {
     const inp = e.target;
+    if (inp.dataset.memoCol) { setEtcMemo(inp); return; }
     if (!inp.dataset.col) return;
     sanitize(inp);
     const n = parseAmount(inp.value);
     inp.classList.toggle('invalid', n === null);
     if (n === null) return;
     setDay(Number(inp.closest('tr').dataset.day), inp.dataset.col, n);
+    if (inp.dataset.col === 'etc') refreshEtcMemo(inp.closest('tr'));
     updateComputed();
   });
+
+  // 기타 내용 칸: 기존 메모(rec.memo.etc)에 그대로 저장 — ✎ 메모와 같은 값
+  function setEtcMemo(inp) {
+    const tr = inp.closest('tr');
+    const d = Number(tr.dataset.day);
+    const rec = dayRec(state.months[state.current], d);
+    setDay(d, 'etc', rec.etc || 0, inp.value.trim());
+    refreshEtcMemo(tr);
+  }
+  function refreshEtcMemo(tr) {
+    const rec = dayRec(state.months[state.current], Number(tr.dataset.day));
+    const memo = (rec.memo && rec.memo.etc) || '';
+    const inp = tr.querySelector('input[data-memo-col]');
+    inp.classList.toggle('need', !!rec.etc && !memo);
+    inp.placeholder = rec.etc ? '무엇을 샀는지 입력' : '';
+    const cell = tr.querySelector('input[data-col="etc"]').closest('.cell');
+    cell.classList.toggle('has-memo', !!memo);
+    cell.title = memo;
+    cell.querySelector('.memo-btn').title = '메모' + (memo ? ': ' + memo : '');
+  }
   dayBody.addEventListener('focusout', (e) => {
     const inp = e.target;
     if (!inp.dataset || !inp.dataset.col) return;
-    const rec = dayRec(state.months[state.current], Number(inp.closest('tr').dataset.day));
+    const d = Number(inp.closest('tr').dataset.day);
+    const rec = dayRec(state.months[state.current], d);
     inp.classList.remove('invalid');
     inp.value = rec[inp.dataset.col] ? fmt(rec[inp.dataset.col]) : '';
+    // 기타 내용 칸이 숨겨진 좁은 화면에서는 기타 금액 입력 후 메모 창을 바로 띄움
+    const memoCol = inp.closest('tr').querySelector('td.memo-col');
+    if (inp.dataset.col === 'etc' && rec.etc > 0 && !(rec.memo && rec.memo.etc) && memoCol && getComputedStyle(memoCol).display === 'none') {
+      setTimeout(() => openMemo(d, 'etc'), 50);
+    }
   });
   dayBody.addEventListener('focusin', (e) => {
     if (e.target.dataset && e.target.dataset.col) e.target.select();
   });
   dayBody.addEventListener('keydown', (e) => {
     const inp = e.target;
-    if (!inp.dataset.col) return;
+    const sel = inp.dataset.col ? `input[data-col="${inp.dataset.col}"]` : inp.dataset.memoCol ? 'input[data-memo-col]' : null;
+    if (!sel) return;
     if (e.key === 'Enter' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       const tr = e.key === 'ArrowUp' ? inp.closest('tr').previousElementSibling : inp.closest('tr').nextElementSibling;
-      if (tr) tr.querySelector(`input[data-col="${inp.dataset.col}"]`).focus();
+      if (tr) tr.querySelector(sel).focus();
       else inp.blur();
     }
   });
@@ -546,7 +577,10 @@
       const spent = (r.lunch || 0) + (r.coffee || 0) + (r.etc || 0);
       bal -= spent;
       if (!(r.lunch > 0 || r.coffee > 0 || r.etc > 0)) continue;
-      const items = COLS.filter((c) => r[c] > 0).map((c) => (c === 'etc' ? '기타' : COL_LABEL[c])).join(' · ');
+      const items = COLS.filter((c) => r[c] > 0).map((c) => {
+        const memo = r.memo && r.memo[c];
+        return (c === 'etc' ? '기타' : COL_LABEL[c]) + (memo ? `(${esc(memo)})` : '');
+      }).join(' · ');
       rows.push(`<div class="sc-row" title="${m}/${d} ${items} −${fmt(spent)} · 잔액 ${fmt(bal)}">
         <div class="sc-date"><span class="d">${d}</span><span class="w">${DOW[new Date(y, m - 1, d).getDay()]}</span></div>
         <div class="mid"><div class="it">${items}</div><div class="sub">잔액 <span class="num">${fmt(bal)}</span></div></div>
